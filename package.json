@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://nour-developer1.github.io/My-Portfolio-Website/",
+  "homepage": "https://Nour-Elrouby.github.io/My-Portfolio-Website/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
