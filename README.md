@@ -12,7 +12,7 @@
 
 ![Homepage Preview](./img/Screenshot%202025-09-22%20112219.png)  
 
-👉 **Live Demo:** [nour-developer1.github.io/My-Portfolio-Website](https://nour-developer1.github.io/My-Portfolio-Website/)  
+👉 **Live Demo:** [https://nour-elroby-protfolio.netlify.app/](https://nour-elroby-protfolio.netlify.app/)  
   
 
 ---
@@ -69,4 +69,5 @@ This combination ensures **clean code, scalability, and maintainability**.
 | **Linting**     | ESLint, TypeScript ESLint (optional) |
 | **Deployment**  | GitHub Pages |
 | **Other**       | SEO basics, performance optimization |
+
 
