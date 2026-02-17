@@ -1,6 +1,6 @@
 # 🌐 My Portfolio Website  
 
-![Deploy](https://img.shields.io/badge/Deploy-GitHub%20Pages-blue?style=for-the-badge)
+![Deploy](https://img.shields.io/badge/Deploy-Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Live-success?style=for-the-badge)
 ![Made with](https://img.shields.io/badge/Made%20with-HTML%2C%20CSS%2C%20JS-orange?style=for-the-badge)
@@ -69,5 +69,6 @@ This combination ensures **clean code, scalability, and maintainability**.
 | **Linting**     | ESLint, TypeScript ESLint (optional) |
 | **Deployment**  | GitHub Pages |
 | **Other**       | SEO basics, performance optimization |
+
 
 
