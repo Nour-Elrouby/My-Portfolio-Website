@@ -66,9 +66,10 @@ This combination ensures **clean code, scalability, and maintainability**.
 |-----------------|-------------------|
 | **Frontend**    | React, Vite |
 | **Styling**     | CSS3, Responsive Design, Flexbox/Grid |
-| **Linting**     | ESLint, TypeScript ESLint (optional) |
+| **Linting**     | ESLint, TypeScript ESLint  |
 | **Deployment**  | Netlify |
 | **Other**       | SEO basics, performance optimization |
+
 
 
 
