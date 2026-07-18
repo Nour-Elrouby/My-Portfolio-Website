@@ -31,7 +31,7 @@ const ContactPage: React.FC = () => {
     {
       icon: MapPin,
       label: "Location",
-      value: "El Minya, Egypt",
+      value: "Cairo, Egypt",
       href: "#",
       description: "Open to remote opportunities",
     },
@@ -42,14 +42,14 @@ const ContactPage: React.FC = () => {
       icon: Github,
       label: "GitHub",
       value: "@Nour El-Rouby",
-      href: "https://github.com/nour-developer1",
+      href: "https://github.com/Nour-Elrouby",
       description: "View my code repositories",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
       value: "/in/Nour El-Rouby",
-      href: "https://www.linkedin.com/in/nour-elrouby/",
+      href: "https://www.linkedin.com/in/nourelrouby/",
       description: "Professional networking",
     },
     {
@@ -211,9 +211,10 @@ const ContactPage: React.FC = () => {
                 Ready to Collaborate?
               </h3>
               <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-                Open to exciting AI projects, data challenges, and creative
-                problem-solving. If you’re looking to turn ideas into impactful
-                solutions, let’s connect and make it happen.
+                Open to building practical Generative AI solutions, including
+                LLM applications, RAG-based knowledge systems, AI agents,
+                document intelligence, and API integrations. Let’s turn complex
+                ideas into reliable, user-focused products.
               </p>
               <div className="grid md:grid-cols-2 gap-6 max-w-lg mx-auto">
                 <div className="bg-zinc-800 rounded-lg p-4 text-center">

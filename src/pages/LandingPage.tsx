@@ -52,7 +52,7 @@ const LandingPage: React.FC = () => {
               texts={[
                 "AI Engineer",
                 "Machine Learning Engineer",
-                "Data Analyst",
+                "LLM & Agentic AI Engineer",
                 "Problem Solver",
               ]}
               delay={2000}
@@ -66,7 +66,7 @@ const LandingPage: React.FC = () => {
             transition={{ duration: 1, delay: 3 }}
           >
             <motion.a
-              href="https://github.com/nour-developer1"
+              href="https://github.com/Nour-Elrouby"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
@@ -76,7 +76,7 @@ const LandingPage: React.FC = () => {
               <Github size={32} />
             </motion.a>
             <motion.a
-              href="https://www.linkedin.com/in/nour-elrouby/"
+              href="https://www.linkedin.com/in/nourelrouby/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-blue-400 transition-colors duration-300"

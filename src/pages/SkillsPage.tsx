@@ -19,63 +19,79 @@ const SkillsPage: React.FC = () => {
 
   const skillCategories = {
     ai: {
-      title: "AI, LLMs & Computer Vision",
+      title: "Generative AI & Intelligent Systems",
       icon: Brain,
       skills: [
         {
-          name: "Computer Vision & OCR",
+          name: "LLM Applications & AI Agents",
           description:
-            "Image understanding, document intelligence, and custom OCR pipelines for IDs, meters, prescriptions, and more",
-          technologies: ["OpenCV", "Azure Vision AI", "YOLO", "Tesseract"],
+            "Designing LLM-powered chatbots, conversational interfaces, and agentic workflows for practical business use cases.",
+          technologies: [
+            "LangChain",
+            "Llama",
+            "Ollama",
+            "FastAPI",
+            "Prompt Engineering",
+          ],
           experience: "1+ years",
         },
         {
-          name: "LLMs & Language Agents",
+          name: "RAG & Knowledge Systems",
           description:
-            "Context-aware assistants, PDF/chat agents, and RAG pipelines for production",
-          technologies: ["LangChain", "Llama", "Ollama", "FastAPI", "Pinecone"],
+            "Building knowledge-grounded AI assistants using Retrieval-Augmented Generation, vector search, document retrieval, and context-aware LLM workflows.",
+          technologies: [
+            "LangChain",
+            "Pinecone",
+            "Ollama",
+            "FastAPI",
+            "Vector Search",
+          ],
           experience: "1+ years",
         },
         {
-          name: "Speech & Multimodal AI",
+          name: "Document Intelligence & Computer Vision",
           description:
-            "Text-to-speech, sign language recognition, and AI-based accessibility features",
-          technologies: ["gTTS", "MediaPipe", "LSTM", "Pygame"],
+            "Developing OCR and computer-vision pipelines for identity documents, handwritten prescriptions, images, and structured data extraction.",
+          technologies: ["OpenCV", "Azure AI Vision", "YOLO", "Tesseract"],
           experience: "1+ years",
         },
         {
-          name: "AI Deployment & Workflows",
+          name: "AI Deployment & Integration",
           description:
-            "FastAPI-based AI systems, cloud deployment, and automated pipelines",
+            "Deploying AI applications through APIs, containerized environments, and user-friendly web interfaces.",
           technologies: ["FastAPI", "Uvicorn", "Docker", "Streamlit"],
           experience: "1+ years",
         },
       ],
     },
     data: {
-      title: "Data Analytics & Workflows",
+      title: "Machine Learning & Data Foundations",
       icon: BarChart3,
       skills: [
         {
-          name: "Data Analysis & Dashboards",
+          name: "Machine Learning & Model Evaluation",
           description:
-            "Interactive reports, performance insights, and Excel/Power BI dashboards",
+            "Preparing datasets, training machine-learning models, evaluating performance, and improving model reliability.",
           technologies: [
+            "Python",
             "Pandas",
             "NumPy",
-            "Matplotlib",
-            "Excel",
-            "Power BI",
-            "Tableau",
-            "SQL Server",
+            "Scikit-learn",
+            "XGBoost",
           ],
           experience: "1+ years",
         },
         {
-          name: "ML Pipelines & Deployment",
+          name: "Data Analysis & Visualization",
           description:
-            "End-to-end pipelines for model training, evaluation, and deployment",
-          technologies: ["Scikit-learn", "MLflow", "Airflow", "XGBoost"],
+            "Creating dashboards, reports, and visualizations that turn data into actionable insights.",
+          technologies: [
+            "Excel",
+            "Power BI",
+            "Tableau",
+            "SQL Server",
+            "Matplotlib",
+          ],
           experience: "1+ years",
         },
       ],
@@ -113,29 +129,28 @@ const SkillsPage: React.FC = () => {
 
   const certifications = [
     {
-      title: "Career Essentials in Generative AI by Microsoft and LinkedIn",
-      issuer: "Microsoft",
+      title: "IBM RAG and Agentic AI Professional Certificate",
+      issuer: "IBM",
+      year: "2026",
+    },
+    {
+      title: "Natural Language Processing Specialization",
+      issuer: "DeepLearning.AI",
+      year: "2026",
+    },
+    {
+      title: "Microsoft Azure AI Essentials Professional Certificate",
+      issuer: "Microsoft & LinkedIn",
       year: "2025",
     },
     {
-      title: "Generative AI: Working with Large Language Models",
-      issuer: "LinkedIn",
-      year: "2025",
+      title: "Deep Learning Specialization",
+      issuer: "DeepLearning.AI",
+      year: "2026",
     },
     {
-      title: "Google Analytics Certification",
-      issuer: "Google",
-      year: "2025",
-    },
-    {
-      title: "Generative AI",
-      issuer: "SAS",
-      year: "2025",
-    },
-    {
-      title:
-        "Microsoft Azure AI Essentials Professional Certificate by Microsoft and LinkedIn",
-      issuer: "Microsoft",
+      title: "Career Essentials in Generative AI",
+      issuer: "Microsoft & LinkedIn",
       year: "2025",
     },
     {
@@ -278,7 +293,7 @@ const SkillsPage: React.FC = () => {
                   {
                     size: 32,
                     className: "text-blue-500 mr-4",
-                  }
+                  },
                 )}
                 <h2 className="text-3xl font-bold text-white">
                   {

@@ -8,6 +8,21 @@ const FreelancingPage: React.FC = () => {
 
   const freelanceProjects = [
     {
+      title: "AI Engineer Freelance",
+      icon: Brain,
+      period: "2025 - Present",
+      description:
+        "Designed and implemented custom AI models to meet client-specific needs across various industries.",
+      achievements: ["Delivered 2+ custom AI solutions for different clients"],
+      skills: [
+        "Machine Learning",
+        "Computer Vision",
+        "NLP",
+        "Custom AI Solutions",
+      ],
+      clients: "2+",
+    },
+    {
       title: "Data Analyst Freelance",
       icon: Palette,
       period: "2024 – Present",
@@ -27,21 +42,6 @@ const FreelancingPage: React.FC = () => {
         "Predictive Analytics",
       ],
       clients: "4",
-    },
-    {
-      title: "AI Engineer Freelance",
-      icon: Brain,
-      period: "2025 - Present",
-      description:
-        "Designed and implemented custom AI models to meet client-specific needs across various industries.",
-      achievements: ["Delivered 2+ custom AI solutions for different clients"],
-      skills: [
-        "Machine Learning",
-        "Computer Vision",
-        "NLP",
-        "Custom AI Solutions",
-      ],
-      clients: "2+",
     },
   ];
 

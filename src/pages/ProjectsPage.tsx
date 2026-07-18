@@ -1,210 +1,214 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { Github, Brain, Heart, Shield, Code } from "lucide-react";
-
+import {
+  Github,
+  Brain,
+  Bot,
+  ScanSearch,
+  BadgeDollarSign,
+  MessageCircle,
+  Smile,
+  ShieldCheck,
+  Search,
+} from "lucide-react";
 const ProjectsPage: React.FC = () => {
   const navigate = useNavigate();
 
   const projects = [
     {
-      title: "Movie Portfolio Project",
+      title: "ProcureLens — RFP Vendor Evaluation Agent",
       description:
-        "Developed a Python-based data analysis project to explore and visualize movie datasets. The project covers data collection, cleaning, and exploratory data analysis (EDA) to uncover insights into movie performance, ratings, and trends. It highlights the use of data visualization to tell compelling stories and is structured as a project for demonstrating analytics capabilities.",
-      category: "Data Analysis",
+        "Developed an AI-powered procurement agent that evaluates vendor proposals against RFP requirements using a Groq-hosted LLM. The system extracts proposal content from multiple document formats, generates evidence-based scores against defined evaluation criteria, performs an independent self-verification step to validate reasoning consistency, and ranks vendors automatically based on their final scores.",
+      category: "AI Agents / LLM Applications",
+      technologies: [
+        "Python",
+        "FastAPI",
+        "Groq (LLaMA 3.3 70B)",
+        "pdfplumber",
+        "python-docx",
+        "openpyxl",
+      ],
+      features: [
+        "Multi-format document extraction pipeline supporting PDF, DOCX, and XLSX vendor proposals",
+        "Evidence-grounded scoring engine (0–100) based strictly on RFP evaluation criteria",
+        "Independent self-verification step using a second LLM call to validate scoring consistency",
+        "Automated vendor ranking system that orders proposals by validated evaluation scores",
+        "RFP-grounded Q&A system that answers questions using only the provided document content to minimize hallucinations",
+      ],
+      icon: ScanSearch,
+      status: "Completed",
+      github: "https://github.com/Nour-Elrouby/rfp-vendor-evaluation-agent",
+    },
+    {
+      title: "SmartHire — AI Recruitment Agent",
+      description:
+        "Developed an autonomous AI recruitment agent that streamlines the hiring process by automating resume screening, candidate evaluation, and applicant ranking. Built on a ReAct (Reason + Act) agent architecture powered by LLaMA 3.1, the system processes resumes in multiple formats, evaluates candidates against job requirements, and exposes its functionality through a production-ready FastAPI REST API.",
+      category: "AI Agents & LLM Applications",
+      technologies: [
+        "Python",
+        "FastAPI",
+        "Groq (LLaMA 3.1 8B Instant)",
+        "pdfplumber",
+        "python-docx",
+        "Uvicorn",
+      ],
+      features: [
+        "Implemented a ReAct (Think → Act → Observe) agent loop for autonomous resume screening and reasoning over job requirements",
+        "Built a multi-format resume parser supporting both PDF and DOCX files",
+        "Developed an AI-powered scoring engine that evaluates candidates on a 0–100 scale based on skills, experience, and job description alignment",
+        "Automated candidate ranking system to prioritize applicants according to their evaluation scores",
+        "Integrated a conversational chatbot that answers candidate questions about job roles and hiring requirements",
+        "Exposed the system as a production-ready REST API using FastAPI with interactive Swagger documentation",
+      ],
+      icon: Bot,
+      status: "Completed",
+      github: "https://github.com/Nour-Elrouby/SmartHire_Agent",
+    },
+    {
+      title: "Teeth Classification",
+      description:
+        "Developed a deep learning system for automated dental image classification across seven tooth categories, comparing a custom CNN architecture with a fine-tuned MobileNetV2 transfer learning model. The project demonstrates a complete deep learning workflow, from data augmentation and model training to evaluation and deployment through an interactive Streamlit web application.",
+      category: "Deep Learning & Computer Vision",
+      technologies: [
+        "Python",
+        "TensorFlow",
+        "Keras",
+        "CNN",
+        "MobileNetV2",
+        "Streamlit",
+        "ImageDataGenerator",
+      ],
+      features: [
+        "Designed and trained a custom CNN inspired by VGG16 using Conv2D, MaxPooling, and Dropout layers for robust image classification",
+        "Achieved 99.12% test accuracy with a fine-tuned MobileNetV2 model using transfer learning",
+        "Built a comprehensive data augmentation pipeline including rotation, zoom, horizontal flip, and width/height shifts to improve model generalization",
+        "Benchmarked CNN and MobileNetV2 performance using accuracy and loss metrics to identify the best-performing architecture",
+        "Deployed the final model as a real-time Streamlit web application for interactive dental image classification",
+      ],
+      icon: Smile,
+      status: "Completed",
+      github: "https://github.com/Nour-Elrouby/Teeth-Classification",
+    },
+        {
+      title: "Credit Card Fraud Detection",
+      description:
+        "Developed a machine learning pipeline for detecting fraudulent credit card transactions in a highly imbalanced financial dataset containing over 284,000 records. The project addresses severe class imbalance using multiple resampling techniques, benchmarks several classification algorithms, and identifies the most reliable fraud detection model using fraud-sensitive evaluation metrics.",
+      category: "Machine Learning",
       technologies: [
         "Python",
         "Pandas",
         "NumPy",
+        "Scikit-learn",
+        "XGBoost",
+        "Imbalanced-learn (SMOTE)",
         "Matplotlib",
         "Seaborn",
-        "Statsmodels",
-        "Plotly",
       ],
       features: [
-        "Data cleaning and preprocessing for reliable analysis",
-        "Exploratory data analysis (EDA) of movie revenues, budgets, ratings, and genres",
-        "Visualization of key trends with Matplotlib and Seaborn",
-        "Insights into relationships such as budget vs. revenue and genre-based performance",
-        "Portfolio-ready notebook for showcasing data storytelling",
+        "Applied multiple imbalance handling techniques including SMOTE, Random Undersampling, and SMOTEENN to improve fraud detection performance",
+        "Trained and compared Logistic Regression, Decision Tree, Random Forest, and XGBoost across different sampling strategies",
+        "Evaluated models using F1-score and AUC-ROC as primary metrics for reliable performance assessment on imbalanced datasets",
+        "Performed exploratory data analysis with correlation heatmaps, fraud distribution visualization, and transaction amount analysis",
+        "Built an automated model selection workflow to identify the best-performing classifier and resampling strategy combination",
+      ],
+      icon: ShieldCheck,
+      status: "Completed",
+      github: "https://github.com/Nour-Elrouby/Credit-Card-Fraud-Detection",
+    },
+     {
+      title: "Mental Health Support Chatbot",
+      description:
+        "Developed an NLP-based chatbot that explores intent-driven conversational AI for mental health support. Built with a PyTorch neural network, the system classifies user messages into predefined conversational intents and generates empathetic, non-judgmental responses. The project is intended as a learning demonstration and is not a substitute for professional mental health care.",
+      category: "NLP & AI",
+      technologies: ["Python", "PyTorch", "NLTK", "Machine Learning", "NLP"],
+      features: [
+        "Implemented intent classification using a bag-of-words feature extraction pipeline and a feedforward neural network in PyTorch",
+        "Built an NLP preprocessing pipeline with NLTK for tokenization, stemming, and text normalization",
+        "Designed a structured JSON-based intent system for easily extending conversation topics and response sets",
+        "Generated supportive, rule-based responses with an empathetic and non-judgmental conversational style",
+        "Developed a lightweight and extensible architecture that can be expanded with features such as crisis-language detection and resource recommendation",
+      ],
+      icon: MessageCircle,
+      status: "Completed",
+      github: "https://github.com/Nour-Elrouby/Mental-Health-Chatbot",
+    },
+    {
+      title: "Skin Tone Classification",
+      description:
+        "Developed a computer vision system for classifying human skin tones into seven fine-grained categories using a custom Convolutional Neural Network (CNN). The project tackles the challenge of distinguishing visually similar skin tone classes and delivers real-time predictions through a Flask-based web application with an intuitive image upload interface.",
+      category: "Deep Learning & Computer Vision",
+      technologies: [
+        "Python",
+        "TensorFlow",
+        "Keras",
+        "Flask",
+        "HTML",
+        "CSS",
+        "JavaScript",
+      ],
+      features: [
+        "Designed and trained a custom CNN architecture for fine-grained classification across seven closely related skin tone categories",
+        "Built an end-to-end deep learning pipeline covering data preparation, model training, evaluation, and deployment",
+        "Developed an interactive Flask web application that allows users to upload images and receive instant skin tone predictions",
+        "Addressed the challenge of high visual similarity between adjacent skin tone classes to improve classification accuracy",
+        "Integrated the trained TensorFlow/Keras model into a production-ready web interface for real-time inference",
       ],
       icon: Brain,
       status: "Completed",
-      github:
-        "https://github.com/nour-developer1/Movie-Portfolio-Project/blob/5fa24cd1545fe61443baf70b629e663261d959b8/Movie%20Portfolio%20Project.ipynb",
+      github: "https://github.com/Nour-Elrouby/Skin_Tone_Classification",
     },
     {
-      title: "Automated API Data Extraction & Appending",
+      title: "Product Matching in Marketplace",
       description:
-        "A data engineering project focused on building an automated pipeline to extract data from APIs, transform it, and append it to existing datasets for continuous integration. This project ensures real-time data availability, reduces manual intervention, and supports scalable analytics by automating the entire data ingestion and transformation process.",
-      category: "Data Engineering",
-      technologies: [
-        "Python",
-        "Pandas",
-        "Scheduling (Cron/Task Scheduler)",
-        "APIs (REST/JSON)",
-        "Data Cleaning & Transformation",
-      ],
-      features: [
-        "Automated API extraction for dynamic datasets",
-        "Implemented logic to append new records to existing data without duplication",
-        "Applied robust error handling and logging for reliability",
-        "Designed modular scripts for reusability across multiple APIs",
-        "Ensured data consistency and readiness for downstream analytics",
-      ],
-      icon: Brain,
-      status: "Completed",
-      github: "https://github.com/nour-developer1/Data-Automation-Project",
-    },
-    {
-      title: "Fitbit Health",
-      description:
-        "Comprehensive analysis of Fitbit fitness tracker data to understand daily activity patterns, sleep quality, and overall health trends. The project focuses on deriving actionable insights for healthier lifestyles through data exploration and visualization.",
-      category: "Data Analysis",
-      technologies: [
-        "Power BI",
-        "Power Query",
-        "DAX",
-        "CSV",
-        "SQL",
-        "Data Modeling & Visualization ",
-      ],
-      features: [
-        "Cleaned and organized raw Fitbit dataset",
-
-        "Visualized daily steps, calories burned, and activity intensity",
-        "Analyzed sleep patterns and their relation to activity levels",
-
-        "Discovered trends for optimizing fitness and wellness goals",
-      ],
-      icon: Heart,
-      status: "Completed",
-      github: "https://github.com/nour-developer1/Fitbit-Health-Dashboard",
-    },
-    {
-      title: "Telecom Customer Churn Analysis",
-      description:
-        "Comprehensive data science project analyzing customer churn patterns in telecommunications. Utilizes machine learning techniques to predict customer retention and identify key factors.",
-      category: "Data Science",
-      technologies: [
-        "Python",
-        "Pandas",
-        "Scikit-learn",
-        "Data Visualization",
-        "Data Cleaning",
-        "Feature Engineering",
-      ],
-      features: [
-        "Customer behavior analysis",
-        "Churn prediction models",
-        "Feature importance identification",
-        "Interactive data visualizations",
-        "Assessed model performance using ROC-AUC, precision-recall, F1 score, and confusion matrix",
-      ],
-      icon: Code,
-      status: "Completed",
-      github:
-        "https://github.com/nour-developer1/CodeClause-DataScience/blob/main/Telcom-Customer-Chrun.ipynb",
-    },
-    {
-      title: "IMDB Top 250 Movies Analysis",
-      description:
-        "Data analysis project exploring IMDB’s Top 250 movies to uncover trends in genres, ratings, release years, and audience preferences. The project highlights insights into what makes a movie critically acclaimed and popular among viewers.",
-      category: "Data Analysis",
-      technologies: [
-        "Power BI",
-        "Power Query",
-        "DAX",
-        "APIs",
-        "Data Modeling & Visualization",
-      ],
-      features: [
-        "Cleaned and processed IMDB dataset",
-
-        "Visualized rating distributions and genre trends",
-
-        "Identified top directors and actors in the Top 250 list",
-
-        "Analyzed correlations between ratings, votes, and release years",
-      ],
-      icon: Shield,
-      status: "Completed",
-      github: "https://github.com/nour-developer1/IMDB-Movies-Analysis",
-    },
-    {
-      title: "Market Basket Analysis",
-      description:
-        "Comprehensive data science project applying association rule mining on retail transactions. Utilizes Apriori/FP-Growth algorithms to uncover frequent itemsets, generate association rules, and provide insights for product bundling, promotions, and recommendations.",
-      category: "Data Science",
+        "Developed an NLP-based product matching engine that automatically maps seller product names to the correct entries in a master catalog and assigns the appropriate SKU. The system combines cosine similarity, fuzzy matching, and Levenshtein distance within a weighted scoring framework, while supporting Arabic text normalization and pharmaceutical attribute extraction for accurate multilingual matching.",
+      category: "NLP & Text Matching",
       technologies: [
         "Python",
         "Pandas",
         "NumPy",
         "Scikit-learn",
-        "Requests",
-        "Data Visualization (Matplotlib / Plotly)",
+        "NLTK",
+        "FuzzyWuzzy",
+        "python-Levenshtein",
       ],
       features: [
-        "Frequent itemset mining with Apriori/FP-Growth",
-
-        "Association rule generation (support, confidence, lift, conviction)",
-
-        "Rule pruning and redundancy elimination",
-
-        "Interactive data visualizations (heatmaps, network graphs)",
-
-        "Exportable rules for CRM/CDP or recommendation engines",
+        "Built a multilingual text preprocessing pipeline with Arabic normalization, diacritic removal, punctuation cleaning, abbreviation expansion, and text standardization",
+        "Extracted pharmaceutical attributes such as dosage values and product forms (tablet, capsule, syrup) from unstructured product names",
+        "Designed a weighted similarity scoring framework combining cosine similarity, fuzzy token matching, and Levenshtein distance for accurate product matching",
+        "Enabled configurable scoring weights to adapt the matching engine to different catalog structures and naming conventions",
+        "Integrated the custom similarity scoring function with GridSearchCV for automated hyperparameter optimization",
+        //"Automated end-to-end SKU assignment by matching seller products with the highest-scoring entries in the master catalog",
       ],
-      icon: Brain,
+      icon: Search,
       status: "Completed",
       github:
-        "https://github.com/nour-developer1/Market-Basket-analysis/blob/main/Market%20Basket%20analysis.ipynb",
+        "https://github.com/Nour-Elrouby/Product_Matching_In_Marketplace_Using_NLP",
     },
-    {
-      title: "Amazon Web Scraping",
+        {
+      title: "YouTube Spam Comment Detection",
       description:
-        "Developed a Python-based web scraping tool to extract product details, prices, and ratings from Amazon for price monitoring and market analysis. The project automates data collection to save time and ensure up-to-date insights.",
-      category: "Data Analysis",
+        "Developed a natural language processing pipeline for classifying YouTube comments as spam or legitimate using a labeled dataset of real-world comments. The project applies comprehensive text preprocessing, TF-IDF feature engineering, and multi-model benchmarking to build an accurate and reliable spam detection system.",
+      category: "NLP & Machine Learning",
       technologies: [
         "Python",
-        "Pandas",
         "Scikit-learn",
-        "BeautifulSoup",
-        "Requests",
+        "NLTK",
+        "TF-IDF Vectorizer",
+        "SVC",
+        "LinearSVC",
+        "Random Forest",
       ],
       features: [
-        "Automated extraction of product names, prices, and ratings",
-
-        "Data cleaning and organization for further analysis",
-        "Capability to monitor price changes over time",
-        "Easily adaptable to different product categories",
+        "Performed exploratory data analysis to identify linguistic patterns, word frequency distributions, and differences between spam and legitimate comments",
+        "Built a complete NLP preprocessing pipeline including text cleaning, lowercasing, stopword removal, tokenization, and special character filtering",
+        "Extracted numerical text features using TF-IDF vectorization to capture term importance across the comment corpus",
+        "Trained and benchmarked SVC, LinearSVC, and Random Forest models to determine the best-performing spam classifier",
+        "Evaluated model performance using accuracy, precision, recall, and F1-score for comprehensive comparison and validation",
       ],
-      icon: Code,
+      icon: BadgeDollarSign,
       status: "Completed",
-      github:
-        "https://github.com/nour-developer1/Amazon-Web-Scraper-Project/blob/main/Amazon%20Web%20Scraper%20Project.ipynb",
-    },
-    {
-      title: "Mental Health Chatbot",
-      description:
-        "AI-powered chatbot designed to provide mental health support and resources. Uses natural language processing to understand user concerns and provide appropriate responses and guidance.",
-      category: "NLP & AI",
-      technologies: [
-        "Python",
-        "NLP",
-        "Machine Learning",
-        "PyTorch",
-        "Chatbot Development",
-      ],
-      features: [
-        "Natural language understanding",
-        "Mental health resource provision",
-        "Empathetic response generation",
-        "Non-judgmental environment",
-      ],
-      icon: Heart,
-      status: "In Progress",
-      github: "https://github.com/nour-developer1/Mental-Health-Chatbot",
+      github: "https://github.com/Nour-Elrouby/Youtube-spam-comment-detection",
     },
   ];
 

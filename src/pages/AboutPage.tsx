@@ -12,7 +12,7 @@ import {
 function calculateAge(
   birthYear: number,
   birthMonth: number,
-  birthDay: number
+  birthDay: number,
 ): number {
   const today = new Date();
   let age = today.getFullYear() - birthYear;
@@ -26,20 +26,20 @@ function calculateAge(
 
   return age;
 }
-const age = calculateAge(2005, 3, 17);
+const age = calculateAge(2006, 3, 17);
 const AboutPage: React.FC = () => {
   const highlights = [
     {
       icon: Brain,
-      title: "AI Engineering",
+      title: "Generative AI Engineering",
       description:
-        "Aspiring AI Engineer with hands-on experience in building small-scale machine learning models, exploring computer vision and OCR, and experimenting with LLMs. Continuously developing skills to design and deploy intelligent systems for real-world applications.",
+      "Designing practical AI applications using LLMs, NLP, prompt engineering, and conversational interfaces.",
     },
     {
       icon: Database,
-      title: "Data & Analysis",
+      title: "RAG & Agentic AI",
       description:
-        "Developing skills in transforming raw data into actionable insights, from Excel and Power BI to applying AI-based analytics for creating interactive dashboards and reports.",
+      "Building knowledge-grounded AI systems using RAG, vector databases, AI agents, and reliable retrieval workflows.",
     },
   ];
 
@@ -47,7 +47,7 @@ const AboutPage: React.FC = () => {
     {
       icon: MapPin,
       label: "Location",
-      value: "El Minya, Egypt",
+      value: "Cairo, Egypt",
       description: "Open to remote opportunities and global collaborations",
     },
     {
@@ -65,9 +65,9 @@ const AboutPage: React.FC = () => {
     {
       icon: Briefcase,
       label: "Current Role",
-      value: "Data Analyst & ML Practitioner",
+      value: "Generative AI Engineer | LLM & Agentic AI Specialist",
       description:
-        "Focused on learning, projects, and building strong foundations in software development and AI.",
+      "Building production-ready GenAI solutions with LLMs, RAG, NLP, and AI Agents.",
     },
   ];
 
@@ -87,7 +87,8 @@ const AboutPage: React.FC = () => {
             </h1>
             <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              AI Engineer | Data Analyst | Problem Solver | Lifelong Learner
+              AI & ML Engineer | NLP & Generative AI Specialist | Problem Solver
+              | Lifelong Learner
             </p>
           </motion.div>
 
@@ -127,43 +128,32 @@ const AboutPage: React.FC = () => {
             >
               <div>
                 <h2 className="text-3xl font-bold mb-6 text-white">
-                  AI Engineer & Data Analyst
+                  Generative AI Engineer
                 </h2>
                 <div className="space-y-4 text-lg text-gray-300 leading-relaxed">
                   <p>
-                    I’m a passionate 20-year-old AI Engineer and Data Analyst
-                    based in El Minya, Egypt, currently pursuing my BSc in
-                    Computers and AI Engineering at Beni-Suef National
-                    University. My focus is on developing AI-powered systems in
-                    generative AI, large language models, computer vision, and
-                    data-driven analytics.
+                    I’m a passionate {age}-year-old Generative AI Engineer based in
+                    Cairo, Egypt, currently pursuing my BSc in Computers and AI
+                    Engineering at Beni-Suef National University. I focus on
+                    developing AI-powered solutions using large language models,
+                    Retrieval-Augmented Generation (RAG), natural language
+                    processing, and agentic AI.
                   </p>
 
                   <p>
-                    My tech journey started at university, where I specialized
-                    in Artificial Intelligence and Data Science, leading
-                    academic projects and gaining practical experience in
-                    machine learning, data analysis, and deep learning
-                    applications. Alongside my studies, I’ve earned
-                    certifications from Microsoft, NVIDIA, Google, SAS, and
-                    LinkedIn Learning, covering areas such as LLMs, deep
-                    learning, analytics, and AI deployment.
+                    My experience includes building LLM-powered chatbots,
+                    RAG-based knowledge assistants, OCR and identity-extraction
+                    pipelines, and practical AI applications that solve
+                    real-world problems. I have also earned certifications from
+                    IBM, Google, and DeepLearning.AI in Generative AI, LLMs,
+                    RAG, NLP, deep learning, analytics, and AI engineering.
                   </p>
                   <p>
-                    I strive to design intelligent, production-grade solutions
-                    that address real-world problems and create measurable
-                    impact. From building chatbots with LLMs and implementing
-                    OCR and identity extraction pipelines to applying computer
-                    vision models and analytics-driven insights, I enjoy taking
-                    on challenges that bring AI into practical use.
-                  </p>
-
-                  <p>
-                    I stay updated by reading research papers, contributing to
-                    open-source, and sharing knowledge with the community. My
-                    key interests lie in Generative AI, computer vision, data
-                    analytics, and adaptive learning systems that evolve over
-                    time.
+                    I stay current by reading research papers, contributing to
+                    open-source projects, and exploring emerging AI
+                    technologies. My key interests include Generative AI, LLMs,
+                    RAG, NLP, AI agents, computer vision, and adaptive learning
+                    systems.
                   </p>
                 </div>
               </div>
@@ -207,27 +197,25 @@ const AboutPage: React.FC = () => {
                   <p className="flex items-start space-x-3">
                     <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
                     <span>
-                      Pushing AI to production and solving real-world problems
+                      Transforming Generative AI concepts into useful, real-world solutions.
                     </span>
                   </p>
                   <p className="flex items-start space-x-3">
                     <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
                     <span>
-                      Applying logical thinking and analytical skills to break
-                      down challenges and develop efficient, effective
-                      solutions.
+                       Solving complex problems with LLMs, RAG, and agentic systems.
                     </span>
                   </p>
                   <p className="flex items-start space-x-3">
                     <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
                     <span>
-                      Learning cutting-edge AI and sharing it with others
+                       Building trustworthy AI systems grounded in relevant data and user needs
                     </span>
                   </p>
                   <p className="flex items-start space-x-3">
                     <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
                     <span>
-                      Creating tools that blend intelligence and usability
+                      Continuously learning and sharing emerging AI technologies
                     </span>
                   </p>
                 </div>

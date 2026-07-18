@@ -29,15 +29,15 @@ const EducationPage: React.FC = () => {
       type: "Professional Certification",
     },
     {
-      title: "Google Analytics Certification",
-      issuer: "Google",
-      year: "2025",
+      title: "Deep Learning Specialization",
+      issuer: "DeepLearning.AI",
+      year: "2026",
       type: "Specialization",
     },
     {
-      title: "Generative AI",
-      issuer: "SAS",
-      year: "2025",
+      title: "IBM RAG and Agentic AI Professional Certificate",
+      issuer: "IBM",
+      year: "2026",
       type: "Specialization",
     },
     {
@@ -48,9 +48,9 @@ const EducationPage: React.FC = () => {
       type: "Skill Track",
     },
     {
-      title: "Introduction to Data Science ",
-      issuer: "Cisco Networking Academy",
-      year: "2025",
+      title: "Natural Language Processing Specialization ",
+      issuer: "DeepLearning.AI",
+      year: "2026",
       type: "Professional Certification",
     },
   ];
