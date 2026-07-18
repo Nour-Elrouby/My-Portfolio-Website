@@ -90,7 +90,7 @@ const ProjectsPage: React.FC = () => {
       status: "Completed",
       github: "https://github.com/Nour-Elrouby/Teeth-Classification",
     },
-        {
+    {
       title: "Credit Card Fraud Detection",
       description:
         "Developed a machine learning pipeline for detecting fraudulent credit card transactions in a highly imbalanced financial dataset containing over 284,000 records. The project addresses severe class imbalance using multiple resampling techniques, benchmarks several classification algorithms, and identifies the most reliable fraud detection model using fraud-sensitive evaluation metrics.",
@@ -116,7 +116,7 @@ const ProjectsPage: React.FC = () => {
       status: "Completed",
       github: "https://github.com/Nour-Elrouby/Credit-Card-Fraud-Detection",
     },
-     {
+    {
       title: "Mental Health Support Chatbot",
       description:
         "Developed an NLP-based chatbot that explores intent-driven conversational AI for mental health support. Built with a PyTorch neural network, the system classifies user messages into predefined conversational intents and generates empathetic, non-judgmental responses. The project is intended as a learning demonstration and is not a substitute for professional mental health care.",
@@ -185,7 +185,7 @@ const ProjectsPage: React.FC = () => {
       github:
         "https://github.com/Nour-Elrouby/Product_Matching_In_Marketplace_Using_NLP",
     },
-        {
+    {
       title: "YouTube Spam Comment Detection",
       description:
         "Developed a natural language processing pipeline for classifying YouTube comments as spam or legitimate using a labeled dataset of real-world comments. The project applies comprehensive text preprocessing, TF-IDF feature engineering, and multi-model benchmarking to build an accurate and reliable spam detection system.",
