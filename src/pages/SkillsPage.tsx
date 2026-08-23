@@ -4,7 +4,7 @@ import {
   Code,
   //Database,
   Brain,
-  BarChart3,
+  ChartNoAxesCombined,
   //Layers,
   Award,
   Download,
@@ -33,7 +33,7 @@ const SkillsPage: React.FC = () => {
             "FastAPI",
             "Prompt Engineering",
           ],
-          experience: "1+ years",
+          experience: "Hands-on Experience",
         },
         {
           name: "RAG & Knowledge Systems",
@@ -46,27 +46,33 @@ const SkillsPage: React.FC = () => {
             "FastAPI",
             "Vector Search",
           ],
-          experience: "1+ years",
+          experience: "Hands-on Experience",
         },
         {
-          name: "Document Intelligence & Computer Vision",
+          name: "LLM Evaluation & Reliability",
           description:
-            "Developing OCR and computer-vision pipelines for identity documents, handwritten prescriptions, images, and structured data extraction.",
-          technologies: ["OpenCV", "Azure AI Vision", "YOLO", "Tesseract"],
-          experience: "1+ years",
+            "Evaluating LLM and agentic systems for retrieval quality, groundedness, citation accuracy, tool selection, and reliable end-to-end execution.",
+          technologies: [
+            "LLM Evaluation",
+            "Groundedness",
+            "Retrieval Quality",
+            "Citation Accuracy",
+            "Agent Reliability",
+          ],
+          experience: "Hands-on Experience",
         },
         {
           name: "AI Deployment & Integration",
           description:
             "Deploying AI applications through APIs, containerized environments, and user-friendly web interfaces.",
           technologies: ["FastAPI", "Uvicorn", "Docker", "Streamlit"],
-          experience: "1+ years",
+          experience: "Hands-on Experience",
         },
       ],
     },
     data: {
       title: "Machine Learning & Data Foundations",
-      icon: BarChart3,
+      icon: ChartNoAxesCombined,
       skills: [
         {
           name: "Machine Learning & Model Evaluation",
@@ -79,7 +85,7 @@ const SkillsPage: React.FC = () => {
             "Scikit-learn",
             "XGBoost",
           ],
-          experience: "1+ years",
+          experience: "Hands-on Experience",
         },
         {
           name: "Data Analysis & Visualization",
@@ -92,7 +98,7 @@ const SkillsPage: React.FC = () => {
             "SQL Server",
             "Matplotlib",
           ],
-          experience: "1+ years",
+          experience: "Hands-on Experience",
         },
       ],
     },
@@ -109,7 +115,7 @@ const SkillsPage: React.FC = () => {
             "Algorithm & analysis",
             "Time & space complexity optimization",
           ],
-          experience: "2+ years",
+          experience: "3+ years",
         },
         {
           name: "Core Fundamentals",
@@ -121,7 +127,7 @@ const SkillsPage: React.FC = () => {
             "OOP",
             "Code modularity & clean architecture principles",
           ],
-          experience: "2+ years",
+          experience: "3+ years",
         },
       ],
     },
@@ -139,14 +145,14 @@ const SkillsPage: React.FC = () => {
       year: "2026",
     },
     {
-      title: "Microsoft Azure AI Essentials Professional Certificate",
-      issuer: "Microsoft & LinkedIn",
-      year: "2025",
-    },
-    {
       title: "Deep Learning Specialization",
       issuer: "DeepLearning.AI",
       year: "2026",
+    },
+    {
+      title: "Microsoft Azure AI Essentials Professional Certificate",
+      issuer: "Microsoft & LinkedIn",
+      year: "2025",
     },
     {
       title: "Career Essentials in Generative AI",
@@ -176,8 +182,8 @@ const SkillsPage: React.FC = () => {
             </h1>
             <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Comprehensive technical expertise across AI, Problem solving, Data
-              science & Cloud deployment
+              Specialized expertise in Generative AI, Machine Learning, NLP, and AI Engineering
+            
             </p>
           </motion.div>
 
@@ -208,15 +214,17 @@ const SkillsPage: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-center mb-16"
           >
-            <button
-              onClick={() =>
-                alert("The CV with last updates will be available soon!")
-              }
+            <a
+              href="#"
               className="inline-flex items-center space-x-3 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-300"
+              onClick={(event) => {
+                event.preventDefault()
+                alert("The CV with last updates will be available soon!")
+              }}
             >
               <Download size={20} />
               <span>Download CV</span>
-            </button>
+            </a>
           </motion.div>
 
           {/* Stats */}

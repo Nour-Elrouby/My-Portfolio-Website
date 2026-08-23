@@ -1,12 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
-  Brain,
-  Database,
+  BrainCircuit,
+  FileSearch,
+  ClipboardCheck,
   MapPin,
-  Calendar,
+  CalendarDays,
   GraduationCap,
-  Briefcase,
+  CircuitBoard,
 } from "lucide-react";
 
 function calculateAge(
@@ -30,16 +31,22 @@ const age = calculateAge(2006, 3, 17);
 const AboutPage: React.FC = () => {
   const highlights = [
     {
-      icon: Brain,
+      icon: CircuitBoard,
       title: "Generative AI Engineering",
       description:
       "Designing practical AI applications using LLMs, NLP, prompt engineering, and conversational interfaces.",
     },
     {
-      icon: Database,
+      icon: FileSearch,
       title: "RAG & Agentic AI",
       description:
       "Building knowledge-grounded AI systems using RAG, vector databases, AI agents, and reliable retrieval workflows.",
+    },
+    {
+      icon: ClipboardCheck,
+      title: "LLM Evaluation & Reliability",
+      description:
+      "Evaluating LLM and agentic systems for groundedness, retrieval quality, citation accuracy, tool selection, and reliable end-to-end execution.",
     },
   ];
 
@@ -48,26 +55,26 @@ const AboutPage: React.FC = () => {
       icon: MapPin,
       label: "Location",
       value: "Cairo, Egypt",
-      description: "Open to remote opportunities and global collaborations",
+      description: "Open to remote opportunities and global collaboration.",
     },
     {
-      icon: Calendar,
+      icon: CalendarDays,
       label: "Age",
       value: `${age} Years Old`,
-      description: "Driven and energetic professional focused on innovation",
+      description: "Driven and AI professional focused on innovation, continuous learning, and impact.",
     },
     {
       icon: GraduationCap,
       label: "Education",
-      value: "Computers and Artificial Intelligence student",
-      description: "Student in Beni-Suef National University (2023–2027)",
+      value: "B.Sc. in Computers & Artificial Intelligence",
+      description: "Beni-Suef National University   2023–2027",
     },
     {
-      icon: Briefcase,
+      icon: BrainCircuit,
       label: "Current Role",
-      value: "Generative AI Engineer | LLM & Agentic AI Specialist",
+      value: "Generative AI Engineer",
       description:
-      "Building production-ready GenAI solutions with LLMs, RAG, NLP, and AI Agents.",
+      "Building reliable LLM, RAG, and agentic AI systems for real-world applications.",
     },
   ];
 
@@ -87,8 +94,7 @@ const AboutPage: React.FC = () => {
             </h1>
             <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              AI & ML Engineer | NLP & Generative AI Specialist | Problem Solver
-              | Lifelong Learner
+              Generative AI Engineer | RAG & Agentic Systems | LLM Evaluation & Reliability
             </p>
           </motion.div>
 
@@ -132,28 +138,44 @@ const AboutPage: React.FC = () => {
                 </h2>
                 <div className="space-y-4 text-lg text-gray-300 leading-relaxed">
                   <p>
-                    I’m a passionate {age}-year-old Generative AI Engineer based in
-                    Cairo, Egypt, currently pursuing my BSc in Computers and AI
-                    Engineering at Beni-Suef National University. I focus on
-                    developing AI-powered solutions using large language models,
-                    Retrieval-Augmented Generation (RAG), natural language
-                    processing, and agentic AI.
+                    I’m a {age}-year-old Generative AI Engineer based in Cairo,
+                    Egypt, and an undergraduate in Computers and Artificial
+                    Intelligence at Beni-Suef National University. I specialize
+                    in Retrieval-Augmented Generation (RAG), LLM applications,
+                    and reliable agentic workflows, with a focus on building
+                    practical, evidence-grounded AI systems that solve
+                    real-world problems.
                   </p>
 
                   <p>
-                    My experience includes building LLM-powered chatbots,
-                    RAG-based knowledge assistants, OCR and identity-extraction
-                    pipelines, and practical AI applications that solve
-                    real-world problems. I have also earned certifications from
-                    IBM, Google, and DeepLearning.AI in Generative AI, LLMs,
-                    RAG, NLP, deep learning, analytics, and AI engineering.
+                    My experience includes developing retrieval pipelines,
+                    RAG-based knowledge assistants, LLM-powered applications,
+                    and tool-enabled AI agents. I work with Python, LangChain,
+                    LangGraph, FastAPI, embeddings, vector databases, prompt
+                    engineering, and API integrations to design scalable and
+                    dependable end-to-end AI solutions.
                   </p>
                   <p>
-                    I stay current by reading research papers, contributing to
-                    open-source projects, and exploring emerging AI
-                    technologies. My key interests include Generative AI, LLMs,
-                    RAG, NLP, AI agents, computer vision, and adaptive learning
-                    systems.
+                    A key focus of my work is AI reliability. I evaluate
+                    retrieval quality, groundedness, citation accuracy, tool
+                    selection, and agent execution to improve system performance
+                    and reduce unreliable outputs. I’m particularly interested
+                    in building AI systems with transparent failure analysis,
+                    trustworthy behavior, and consistent evidence-based
+                    responses.
+                  </p>
+                  <p>
+                    Alongside Generative AI, I have a strong foundation in
+                    machine learning, deep learning, NLP, and data processing.
+                    Through hands-on projects and industry experience, I
+                    continue to strengthen my skills in designing, evaluating,
+                    and deploying intelligent systems.
+                  </p>
+                  <p>
+                    My key interests include Generative AI, LLM applications,
+                    RAG, AI agents, semantic search, LLM evaluation, and building
+                    trustworthy AI systems that deliver meaningful real-world
+                    value.
                   </p>
                 </div>
               </div>

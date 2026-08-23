@@ -20,7 +20,7 @@ const ProjectsPage: React.FC = () => {
       title: "ProcureLens — RFP Vendor Evaluation Agent",
       description:
         "Developed an AI-powered procurement agent that evaluates vendor proposals against RFP requirements using a Groq-hosted LLM. The system extracts proposal content from multiple document formats, generates evidence-based scores against defined evaluation criteria, performs an independent self-verification step to validate reasoning consistency, and ranks vendors automatically based on their final scores.",
-      category: "AI Agents / LLM Applications",
+      category: "AI Agents & LLM Applications",
       technologies: [
         "Python",
         "FastAPI",
@@ -227,8 +227,8 @@ const ProjectsPage: React.FC = () => {
             </h1>
             <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Innovative AI and data science projects showcasing technical
-              expertise and problem-solving skills
+              Innovative AI projects showcasing technical expertise and real-world problem-solving
+            
             </p>
           </motion.div>
 
@@ -329,9 +329,7 @@ const ProjectsPage: React.FC = () => {
                 Interested in My Work?
               </h3>
               <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-                A selection of projects that highlight the power of AI and data
-                science in solving real-world challenges. Excited to explore new
-                ideas and turn them into impactful solutions together.
+                A selection of projects demonstrating how AI and intelligent systems can address real-world challenges and deliver meaningful impact. Excited to explore new ideas and build impactful solutions together.
               </p>
               <button
                 onClick={() => navigate("/contact")}

@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { Laptop, Palette, Brain, Users } from "lucide-react";
+import { FolderCheck, ChartNoAxesCombined, Waypoints, UsersRound } from "lucide-react";
 
 const FreelancingPage: React.FC = () => {
   const navigate = useNavigate();
@@ -9,23 +9,26 @@ const FreelancingPage: React.FC = () => {
   const freelanceProjects = [
     {
       title: "AI Engineer Freelance",
-      icon: Brain,
+      icon: Waypoints,
       period: "2025 - Present",
       description:
         "Designed and implemented custom AI models to meet client-specific needs across various industries.",
-      achievements: ["Delivered 2+ custom AI solutions for different clients"],
+      achievements: ["Successfully delivered 2+ custom AI solutions for real-world client use cases.",
+                      "Built and delivered 2+ AI solutions tailored to client-specific business needs.",
+                      "Delivered 2+ production-focused AI solutions designed around client requirements."
+                    ],
       skills: [
-        "Machine Learning",
-        "Computer Vision",
+        "Generative AI",
         "NLP",
+        "Machine Learning",
         "Custom AI Solutions",
       ],
       clients: "2+",
     },
     {
       title: "Data Analyst Freelance",
-      icon: Palette,
-      period: "2024 – Present",
+      icon: ChartNoAxesCombined,
+      period: "2024 – 2025",
       description:
         "Analyzed and interpreted complex datasets to provide actionable insights, optimize business processes, and support data-driven decision-making for diverse industries.",
       achievements: [
@@ -37,7 +40,7 @@ const FreelancingPage: React.FC = () => {
         "Data Visualization",
         "SQL",
         "Python (Pandas, NumPy)",
-        "Power BI / Tableau",
+        "Power BI & Tableau",
         "Data Cleaning & Transformation",
         "Predictive Analytics",
       ],
@@ -46,8 +49,8 @@ const FreelancingPage: React.FC = () => {
   ];
 
   const stats = [
-    { icon: Users, label: "Total Clients", value: "8+" },
-    { icon: Laptop, label: "Projects Completed", value: "20+" },
+    { icon: UsersRound, label: "Total Clients", value: "6+" },
+    { icon: FolderCheck, label: "Projects Completed", value: "20+" },
   ];
 
   const handleGetInTouch = () => {
@@ -70,7 +73,7 @@ const FreelancingPage: React.FC = () => {
             </h1>
             <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Building diverse solutions in AI and Data Analytics to empower
+              Building diverse solutions in AI to empower
               businesses and communities with intelligent innovation for clients
               worldwide
             </p>
@@ -182,10 +185,7 @@ const FreelancingPage: React.FC = () => {
                 Ready to Work Together?
               </h3>
               <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-                I'm always interested in discussing new projects and
-                opportunities. Whether you need AI solutions, backend
-                development, or creative content, let's bring your ideas to
-                life.
+                I’m open to collaborating on AI projects, freelance opportunities, and innovative ideas. Whether you need Generative AI solutions, RAG systems, AI agents, or intelligent automation, let’s bring your ideas to life.
               </p>
               <button
                 onClick={handleGetInTouch}

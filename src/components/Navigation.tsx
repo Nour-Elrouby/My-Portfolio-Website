@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
-//import { Home, User, Code, Briefcase, Laptop, FolderOpen, GraduationCap, Mail, Menu, X } from 'lucide-react';
 import {
-  Home,
-  User,
   Code,
   FolderOpen,
   GraduationCap,
+  Home,
+  Laptop,
   Mail,
   Menu,
-  Laptop,
+  User,
   X,
 } from "lucide-react";
+import "./Navigation.css";
 
 const Navigation: React.FC = () => {
   const location = useLocation();
@@ -22,7 +22,6 @@ const Navigation: React.FC = () => {
     { id: "/", label: "Home", icon: Home },
     { id: "/about", label: "About", icon: User },
     { id: "/skills", label: "Skills", icon: Code },
-    // { id: '/experience', label: 'Experience', icon: Briefcase },
     { id: "/freelancing", label: "Freelancing", icon: Laptop },
     { id: "/projects", label: "Projects", icon: FolderOpen },
     { id: "/education", label: "Education", icon: GraduationCap },
@@ -37,23 +36,42 @@ const Navigation: React.FC = () => {
     setIsMobileMenuOpen(false);
   };
 
+  useEffect(() => {
+    closeMobileMenu();
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeMobileMenu();
+    };
+
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [isMobileMenuOpen]);
+
   return (
     <>
       <motion.nav
-        className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-lg border-b border-zinc-800"
+        aria-label="Primary navigation"
+        className="portfolio-nav"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="max-w-6xl mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            {/* Logo */}
-            <Link to="/" onClick={closeMobileMenu} className="block">
-              <div className="text-2xl font-bold text-white">Nour El-Rouby</div>
+        <div className="portfolio-nav__inner">
+            <Link
+              to="/"
+              onClick={closeMobileMenu}
+              aria-label="Nour El-Rouby - Home"
+              className="portfolio-nav__logo"
+            >
+              Nour El-Rouby
             </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-1">
+            <div className="portfolio-nav__links">
               {navItems.map((item) => {
                 const Icon = item.icon;
                 const isActive = location.pathname === item.id;
@@ -61,99 +79,66 @@ const Navigation: React.FC = () => {
                   <Link
                     key={item.id}
                     to={item.id}
-                    className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-colors duration-300 ${
+                    aria-current={isActive ? "page" : undefined}
+                    className={`portfolio-nav__link ${
                       isActive
-                        ? "bg-blue-600 text-white"
-                        : "text-gray-300 hover:text-white hover:bg-zinc-800"
+                        ? "portfolio-nav__link--active"
+                        : ""
                     }`}
                   >
-                    <Icon size={16} />
-                    <span className="text-sm">{item.label}</span>
+                    <Icon className="portfolio-nav__link-icon" aria-hidden="true" />
+                    {item.label}
                   </Link>
                 );
               })}
             </div>
 
-            {/* Mobile Menu Button */}
             <button
-              className="lg:hidden p-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 transition-colors duration-300 text-white"
+              type="button"
               onClick={toggleMobileMenu}
+              aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-navigation"
+              className="portfolio-nav__toggle"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
-          </div>
         </div>
       </motion.nav>
 
-      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={closeMobileMenu}
-            />
-
-            {/* Mobile Menu */}
-            <motion.div
-              className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-black shadow-xl z-50 lg:hidden overflow-y-auto border-l border-zinc-800"
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+          <motion.div
+              id="mobile-navigation"
+              className="portfolio-nav__mobile"
+              initial={{ opacity: 0, y: -24 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -24 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
             >
-              <div className="p-6">
-                {/* Mobile Menu Header */}
-                <div className="flex justify-between items-center mb-8 pb-6 border-b border-zinc-800">
-                  <h2 className="text-xl font-bold text-white">Navigation</h2>
-                  <button
-                    onClick={closeMobileMenu}
-                    className="p-2 rounded-lg hover:bg-zinc-800 transition-colors duration-300 text-white"
-                  >
-                    <X size={24} />
-                  </button>
-                </div>
-
-                {/* Mobile Navigation Items */}
-                <div className="space-y-2">
+              <div className="portfolio-nav__mobile-inner">
+                <div className="portfolio-nav__mobile-links">
                   {navItems.map((item) => {
-                    const Icon = item.icon;
                     const isActive = location.pathname === item.id;
                     return (
                       <Link
                         key={item.id}
                         to={item.id}
                         onClick={closeMobileMenu}
-                        className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors duration-300 ${
+                        aria-current={isActive ? "page" : undefined}
+                        className={`portfolio-nav__mobile-link ${
                           isActive
-                            ? "bg-blue-600 text-white"
-                            : "text-gray-300 hover:text-white hover:bg-zinc-800"
+                            ? "portfolio-nav__mobile-link--active"
+                            : ""
                         }`}
                       >
-                        <Icon size={20} />
-                        <span className="font-medium">{item.label}</span>
+                        {item.label}
                       </Link>
                     );
                   })}
                 </div>
-                {/* Mobile Menu Footer */}
-                <div className="mt-8 pt-6 border-t border-zinc-800">
-                  <div className="text-center">
-                    <div className="text-lg font-bold text-white mb-2">
-                      Nour El-Rouby
-                    </div>
-                    <p className="text-sm text-gray-400">
-                      AI Engineer & Data Analyst
-                    </p>
-                  </div>
-                </div>
               </div>
             </motion.div>
-          </>
         )}
       </AnimatePresence>
     </>

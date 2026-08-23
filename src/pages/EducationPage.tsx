@@ -4,14 +4,14 @@ import { GraduationCap, Award, BookOpen, Calendar } from "lucide-react";
 
 const EducationPage: React.FC = () => {
   const education = {
-    degree: "Computers and Artificial Intelligence student",
+    degree: "B.Sc. in Computers & Artificial Intelligence",
     specialization: "Double Major: AI & Data Science",
     institution: "Beni-Suef National University",
     location: "Beni-Suef, Egypt",
     period: "2023 - 2027",
     description:
       "Comprehensive Double Major Program Covering Artificial Intelligence and Data Science, Including Machine Learning, Deep Learning, Natural Language Processing, Predictive Analytics, Big Data Management, Statistical Modeling, and Ethical AI Applications.",
-    gpa: "very good",
+    gpa: "Very Good",
     honors: "Magna Cum Laude",
   };
 
@@ -29,6 +29,13 @@ const EducationPage: React.FC = () => {
       type: "Professional Certification",
     },
     {
+      title:
+        "Microsoft Azure AI Essentials Professional Certificate by Microsoft and LinkedIn",
+      issuer: "Microsoft",
+      year: "2025",
+      type: "Skill Track",
+    },
+    {
       title: "Deep Learning Specialization",
       issuer: "DeepLearning.AI",
       year: "2026",
@@ -39,13 +46,6 @@ const EducationPage: React.FC = () => {
       issuer: "IBM",
       year: "2026",
       type: "Specialization",
-    },
-    {
-      title:
-        "Microsoft Azure AI Essentials Professional Certificate by Microsoft and LinkedIn",
-      issuer: "Microsoft",
-      year: "2025",
-      type: "Skill Track",
     },
     {
       title: "Natural Language Processing Specialization ",
@@ -190,11 +190,7 @@ const EducationPage: React.FC = () => {
                 Continuous Learning Philosophy
               </h2>
               <p className="text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                I embrace the fast-paced evolution of technology by actively
-                keeping up with advancements in AI, machine learning, and
-                software engineering. Committed to growth, I continuously refine
-                my skills through certifications, hands-on projects, and
-                exploring emerging tools and methodologies.
+                I stay current with advances in Generative AI, machine learning, and software engineering through hands-on projects, certifications, research, and continuous technical experimentation. I’m committed to refining my skills and applying emerging tools and methodologies to real-world AI systems.
               </p>
             </div>
           </motion.div>
