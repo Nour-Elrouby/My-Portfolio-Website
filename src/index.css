@@ -964,3 +964,300 @@ video {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
+
+/* Theme palette */
+html {
+  background: #000000;
+  color-scheme: dark;
+}
+
+body,
+#root,
+.particle-background,
+.bg-black,
+.bg-zinc-900,
+.bg-zinc-800,
+.text-white,
+.text-gray-300,
+.text-gray-400,
+.text-gray-500,
+.border-zinc-700,
+.border-zinc-800 {
+  transition-property: background-color, color, border-color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: ease;
+}
+
+.particle-background {
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+}
+
+html[data-theme="dark"] .min-h-screen.bg-white {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+html[data-theme="light"] {
+  background: #f8fafc;
+  color-scheme: light;
+}
+
+html[data-theme="light"] body,
+html[data-theme="light"] #root,
+html[data-theme="light"] .min-h-screen.bg-white,
+html[data-theme="light"] .bg-black {
+  background-color: #f8fafc;
+}
+
+html[data-theme="light"] .bg-zinc-900 {
+  background-color: #ffffff;
+}
+
+html[data-theme="light"] .bg-zinc-800 {
+  background-color: #f1f5f9;
+}
+
+html[data-theme="light"] .text-white {
+  color: #0f172a;
+}
+
+html[data-theme="light"] .text-gray-300 {
+  color: #475569;
+}
+
+html[data-theme="light"] .text-gray-400,
+html[data-theme="light"] .text-gray-500 {
+  color: #64748b;
+}
+
+html[data-theme="light"] .text-blue-400,
+html[data-theme="light"] .text-blue-500 {
+  color: #2563eb;
+}
+
+html[data-theme="light"] .border-zinc-700,
+html[data-theme="light"] .border-zinc-800 {
+  border-color: #e2e8f0;
+}
+
+html[data-theme="light"] .bg-zinc-900.border,
+html[data-theme="light"] .bg-zinc-800.border {
+  box-shadow: 0 4px 20px rgb(15 23 42 / 0.06);
+}
+
+html[data-theme="light"] .bg-blue-500.text-white,
+html[data-theme="light"] .bg-blue-500 .text-white,
+html[data-theme="light"] .bg-blue-600.text-white,
+html[data-theme="light"] .bg-blue-600 .text-white,
+html[data-theme="light"] .from-blue-600.text-white,
+html[data-theme="light"] .from-blue-600 .text-white {
+  color: #ffffff;
+}
+
+html[data-theme="light"] .group.bg-white.text-black {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+html[data-theme="light"] .group.bg-white.text-black:hover,
+html[data-theme="light"] .hover\:bg-gray-100:hover {
+  background-color: #1d4ed8;
+}
+
+html[data-theme="light"] .hover\:border-zinc-700:hover {
+  border-color: #94a3b8;
+}
+
+html[data-theme="light"] .hover\:bg-zinc-700:hover,
+html[data-theme="light"] .hover\:bg-zinc-800:hover {
+  background-color: #e2e8f0;
+}
+
+html[data-theme="light"] .hover\:text-blue-400:hover,
+html[data-theme="light"] .hover\:text-yellow-400:hover {
+  color: #2563eb;
+}
+
+html[data-theme="light"] input,
+html[data-theme="light"] textarea,
+html[data-theme="light"] select {
+  border-color: #cbd5e1;
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+html[data-theme="light"] input::placeholder,
+html[data-theme="light"] textarea::placeholder {
+  color: #94a3b8;
+}
+
+html[data-theme="light"] input:focus,
+html[data-theme="light"] textarea:focus,
+html[data-theme="light"] select:focus {
+  border-color: #2563eb;
+  outline: 2px solid rgb(37 99 235 / 0.2);
+  outline-offset: 1px;
+}
+
+html[data-theme="light"] .particle-background {
+  background: linear-gradient(135deg, #f8fafc 0%, #eef4fb 100%);
+}
+
+html[data-theme="light"] {
+  scrollbar-color: #64748b #e2e8f0;
+}
+
+html[data-theme="light"] ::-webkit-scrollbar-track {
+  background: #e2e8f0;
+}
+
+html[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: #64748b;
+}
+
+html[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  #root,
+  .particle-background,
+  .bg-black,
+  .bg-zinc-900,
+  .bg-zinc-800,
+  .text-white,
+  .text-gray-300,
+  .text-gray-400,
+  .text-gray-500,
+  .border-zinc-700,
+  .border-zinc-800 {
+    transition-duration: 0.01ms;
+  }
+}
+
+@media (max-width: 767px) {
+  .portfolio-page > div {
+    padding-top: 6.5rem;
+    padding-bottom: 3rem;
+  }
+
+  .portfolio-page > div > div {
+    padding-right: max(1rem, calc(env(safe-area-inset-right) + 0.75rem));
+    padding-left: max(1rem, calc(env(safe-area-inset-left) + 0.75rem));
+  }
+
+  .portfolio-page .text-5xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .portfolio-page .text-3xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .portfolio-page .text-2xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  .portfolio-page .max-w-3xl.text-xl {
+    font-size: 1.0625rem;
+    line-height: 1.625rem;
+  }
+
+  .portfolio-page .mb-16 {
+    margin-bottom: 2.5rem;
+  }
+
+  .portfolio-page .mt-16 {
+    margin-top: 2.5rem;
+  }
+
+  .portfolio-page .gap-16 {
+    gap: 2.5rem;
+  }
+
+  .portfolio-page .gap-8 {
+    gap: 1.25rem;
+  }
+
+  .portfolio-page .p-8,
+  .portfolio-page .p-6 {
+    padding: 1.25rem;
+  }
+
+  .portfolio-page h1,
+  .portfolio-page h2,
+  .portfolio-page h3,
+  .portfolio-page p,
+  .portfolio-page a {
+    overflow-wrap: anywhere;
+  }
+
+  .portfolio-page .flex {
+    min-width: 0;
+  }
+
+  .portfolio-page .flex > * {
+    min-width: 0;
+  }
+
+  .portfolio-page .justify-between {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .portfolio-page button,
+  .portfolio-page a {
+    max-width: 100%;
+  }
+
+  .portfolio-page button.bg-blue-600,
+  .portfolio-page a.bg-blue-600 {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .portfolio-landing,
+  .portfolio-landing > .relative {
+    min-height: 100svh;
+  }
+
+  .portfolio-landing .text-6xl {
+    font-size: 3.25rem;
+    line-height: 1.05;
+  }
+
+  .portfolio-landing .space-x-6 > :not([hidden]) ~ :not([hidden]) {
+    margin-left: 1.25rem;
+  }
+
+  .portfolio-landing a {
+    display: inline-grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    place-items: center;
+  }
+
+  .portfolio-landing button {
+    max-width: calc(100vw - 2rem);
+  }
+}
+
+@media (max-width: 767px) and (max-height: 600px) {
+  .portfolio-landing .mb-12 {
+    margin-bottom: 2rem;
+  }
+
+  .portfolio-landing .mb-8 {
+    margin-bottom: 1.25rem;
+  }
+
+  .portfolio-landing .bottom-8 {
+    display: none;
+  }
+}

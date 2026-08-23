@@ -22,7 +22,7 @@ const LandingPage: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-black text-white overflow-hidden">
+    <div className="portfolio-landing relative min-h-screen bg-black text-white overflow-hidden">
       <ParticleBackground />
 
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4">

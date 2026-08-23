@@ -167,7 +167,7 @@ const SkillsPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="portfolio-page min-h-screen bg-black text-white">
       <div className="pt-32 pb-20">
         <div className="max-w-6xl mx-auto px-6">
           {/* Header */}

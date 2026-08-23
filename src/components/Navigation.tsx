@@ -9,14 +9,41 @@ import {
   Laptop,
   Mail,
   Menu,
+  Moon,
+  Sun,
   User,
   X,
 } from "lucide-react";
 import "./Navigation.css";
 
+type Theme = "dark" | "light";
+
+const getSavedTheme = (): Theme | null => {
+  try {
+    const savedTheme = localStorage.getItem("portfolio-theme");
+    return savedTheme === "light" || savedTheme === "dark"
+      ? savedTheme
+      : null;
+  } catch {
+    return null;
+  }
+};
+
+const getInitialTheme = (): Theme => {
+  const documentTheme = document.documentElement.dataset.theme;
+  if (documentTheme === "light" || documentTheme === "dark") {
+    return documentTheme;
+  }
+
+  return window.matchMedia("(prefers-color-scheme: light)").matches
+    ? "light"
+    : "dark";
+};
+
 const Navigation: React.FC = () => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [theme, setTheme] = useState<Theme>(getInitialTheme);
 
   const navItems = [
     { id: "/", label: "Home", icon: Home },
@@ -36,6 +63,21 @@ const Navigation: React.FC = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const toggleTheme = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    setTheme(nextTheme);
+    document.documentElement.dataset.theme = nextTheme;
+    document.documentElement.style.colorScheme = nextTheme;
+    try {
+      localStorage.setItem("portfolio-theme", nextTheme);
+    } catch {
+      // The selected theme still applies for this session if storage is blocked.
+    }
+    window.dispatchEvent(
+      new CustomEvent("portfolio-theme-change", { detail: nextTheme }),
+    );
+  };
+
   useEffect(() => {
     closeMobileMenu();
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
@@ -44,13 +86,38 @@ const Navigation: React.FC = () => {
   useEffect(() => {
     if (!isMobileMenuOpen) return;
 
+    const previousBodyOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") closeMobileMenu();
     };
 
     window.addEventListener("keydown", closeOnEscape);
-    return () => window.removeEventListener("keydown", closeOnEscape);
+    return () => {
+      document.body.style.overflow = previousBodyOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
   }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    const colorScheme = window.matchMedia("(prefers-color-scheme: light)");
+    const handleColorSchemeChange = (event: MediaQueryListEvent) => {
+      if (getSavedTheme()) return;
+
+      const nextTheme = event.matches ? "light" : "dark";
+      setTheme(nextTheme);
+      document.documentElement.dataset.theme = nextTheme;
+      document.documentElement.style.colorScheme = nextTheme;
+      window.dispatchEvent(
+        new CustomEvent("portfolio-theme-change", { detail: nextTheme }),
+      );
+    };
+
+    colorScheme.addEventListener("change", handleColorSchemeChange);
+    return () =>
+      colorScheme.removeEventListener("change", handleColorSchemeChange);
+  }, []);
 
   return (
     <>
@@ -91,6 +158,19 @@ const Navigation: React.FC = () => {
                   </Link>
                 );
               })}
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className="portfolio-nav__theme-toggle"
+                aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+                title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+              >
+                {theme === "dark" ? (
+                  <Moon aria-hidden="true" />
+                ) : (
+                  <Sun aria-hidden="true" />
+                )}
+              </button>
             </div>
 
             <button
@@ -136,6 +216,21 @@ const Navigation: React.FC = () => {
                       </Link>
                     );
                   })}
+                  <button
+                    type="button"
+                    onClick={toggleTheme}
+                    className="portfolio-nav__mobile-theme-toggle"
+                    aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+                  >
+                    {theme === "dark" ? (
+                      <Moon aria-hidden="true" />
+                    ) : (
+                      <Sun aria-hidden="true" />
+                    )}
+                    <span>
+                      {theme === "dark" ? "Light mode" : "Dark mode"}
+                    </span>
+                  </button>
                 </div>
               </div>
             </motion.div>

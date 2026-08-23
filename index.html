@@ -5,6 +5,25 @@
     <link rel="icon" href="/public/icon.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nour El-Rouby - AI Engineer Portfolio Website</title>
+    <script>
+      (() => {
+        let savedTheme = null;
+
+        try {
+          savedTheme = localStorage.getItem("portfolio-theme");
+        } catch {}
+
+        const theme =
+          savedTheme === "light" || savedTheme === "dark"
+            ? savedTheme
+            : window.matchMedia?.("(prefers-color-scheme: light)").matches
+              ? "light"
+              : "dark";
+
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

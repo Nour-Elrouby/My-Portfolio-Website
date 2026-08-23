@@ -42,19 +42,22 @@ const ParticleBackground: React.FC = () => {
       }
     };
 
-    const animate = () => {
+    const drawParticles = (moveParticles: boolean) => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const isLightTheme = document.documentElement.dataset.theme === "light";
 
       particles.forEach((particle, index) => {
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-
+        if (moveParticles) {
+          particle.x += particle.vx;
+          particle.y += particle.vy;
+        }
         if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
         if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
-
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${particle.opacity})`;
+        ctx.fillStyle = isLightTheme
+          ? `rgba(59, 130, 246, ${particle.opacity * 0.32})`
+          : `rgba(255, 255, 255, ${particle.opacity})`;
         ctx.fill();
 
         // Draw connections
@@ -64,41 +67,64 @@ const ParticleBackground: React.FC = () => {
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < 100) {
-            const opacity = ((100 - distance) / 100) * 0.3;
+            const opacity =
+              ((100 - distance) / 100) * (isLightTheme ? 0.14 : 0.3);
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(otherParticle.x, otherParticle.y);
-            ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
+            ctx.strokeStyle = isLightTheme
+              ? `rgba(100, 116, 139, ${opacity})`
+              : `rgba(255, 255, 255, ${opacity})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
         });
       });
+    };
 
-      requestAnimationFrame(animate);
+    let animationFrameId = 0;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    const animate = () => {
+      drawParticles(true);
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    const handleResize = () => {
+      resizeCanvas();
+      createParticles();
+      if (prefersReducedMotion) drawParticles(false);
+    };
+
+    const handleThemeChange = () => {
+      if (prefersReducedMotion) drawParticles(false);
     };
 
     resizeCanvas();
     createParticles();
-    animate();
+    if (prefersReducedMotion) {
+      drawParticles(false);
+    } else {
+      animate();
+    }
 
-    window.addEventListener("resize", () => {
-      resizeCanvas();
-      createParticles();
-    });
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("portfolio-theme-change", handleThemeChange);
 
     return () => {
-      window.removeEventListener("resize", resizeCanvas);
+      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("portfolio-theme-change", handleThemeChange);
     };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 z-0"
-      style={{
-        background: "linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%)",
-      }}
+      className="particle-background absolute inset-0 z-0"
+      aria-hidden="true"
     />
   );
 };
