@@ -196,7 +196,7 @@ const AboutPage: React.FC = () => {
                     className="bg-zinc-900 rounded-lg p-6 border border-zinc-800"
                   >
                     <div className="flex items-start space-x-4">
-                      <div className="bg-blue-500 p-3 rounded-lg">
+                      <div className="about-highlight-icon bg-blue-500 p-3 rounded-lg">
                         <Icon size={24} className="text-white" />
                       </div>
                       <div>
