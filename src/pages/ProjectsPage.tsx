@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import {
   Github,
-  Brain,
-  Bot,
+  ScanFace,
+  UserCog,
   ScanSearch,
   BadgeDollarSign,
   MessageCircle,
@@ -61,7 +61,7 @@ const ProjectsPage: React.FC = () => {
         "Integrated a conversational chatbot that answers candidate questions about job roles and hiring requirements",
         "Exposed the system as a production-ready REST API using FastAPI with interactive Swagger documentation",
       ],
-      icon: Bot,
+      icon: UserCog,
       status: "Completed",
       github: "https://github.com/Nour-Elrouby/SmartHire_Agent",
     },
@@ -154,7 +154,7 @@ const ProjectsPage: React.FC = () => {
         "Addressed the challenge of high visual similarity between adjacent skin tone classes to improve classification accuracy",
         "Integrated the trained TensorFlow/Keras model into a production-ready web interface for real-time inference",
       ],
-      icon: Brain,
+      icon: ScanFace,
       status: "Completed",
       github: "https://github.com/Nour-Elrouby/Skin_Tone_Classification",
     },

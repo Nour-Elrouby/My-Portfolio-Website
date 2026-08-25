@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
-  Code,
+  Code2,
   //Database,
-  Brain,
-  ChartNoAxesCombined,
+  BrainCircuit,
+  ChartSpline,
   //Layers,
-  Award,
+  BadgeCheck,
   Download,
-  CheckCircle,
-  TrendingUp,
+  CircleCheckBig,
+  BriefcaseBusiness,
   Calendar,
+  Award,
   // Briefcase
 } from "lucide-react";
 
@@ -20,7 +21,7 @@ const SkillsPage: React.FC = () => {
   const skillCategories = {
     ai: {
       title: "Generative AI & Intelligent Systems",
-      icon: Brain,
+      icon: BrainCircuit,
       skills: [
         {
           name: "LLM Applications & AI Agents",
@@ -72,7 +73,7 @@ const SkillsPage: React.FC = () => {
     },
     data: {
       title: "Machine Learning & Data Foundations",
-      icon: ChartNoAxesCombined,
+      icon: ChartSpline,
       skills: [
         {
           name: "Machine Learning & Model Evaluation",
@@ -104,7 +105,7 @@ const SkillsPage: React.FC = () => {
     },
     programming: {
       title: "Programming & Engineering",
-      icon: Code,
+      icon: Code2,
       skills: [
         {
           name: "Problem Solving",
@@ -236,10 +237,10 @@ const SkillsPage: React.FC = () => {
           >
             {[
               // test
-              { label: "Years Experience", value: "2+", icon: TrendingUp },
-              { label: "Projects Completed", value: "20+", icon: CheckCircle },
-              { label: "Technologies Mastered", value: "35+", icon: Code },
-              { label: "Certifications", value: "15+", icon: Award },
+              { label: "Years of Experience", value: "2+", icon: BriefcaseBusiness },
+              { label: "Projects Completed", value: "20+", icon: CircleCheckBig },
+              { label: "Technologies Mastered", value: "35+", icon: Code2 },
+              { label: "Certifications", value: "15+", icon: BadgeCheck },
             ].map((stat, index) => {
               const Icon = stat.icon;
               return (

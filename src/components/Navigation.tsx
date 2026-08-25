@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import {
-  Code,
-  FolderOpen,
+  Code2,
+  FolderGit2,
   GraduationCap,
   Home,
-  Laptop,
+  Laptop2Icon,
   Mail,
   Menu,
   Moon,
   Sun,
-  User,
+  UserRound,
   X,
 } from "lucide-react";
 import "./Navigation.css";
@@ -47,10 +47,10 @@ const Navigation: React.FC = () => {
 
   const navItems = [
     { id: "/", label: "Home", icon: Home },
-    { id: "/about", label: "About", icon: User },
-    { id: "/skills", label: "Skills", icon: Code },
-    { id: "/freelancing", label: "Freelancing", icon: Laptop },
-    { id: "/projects", label: "Projects", icon: FolderOpen },
+    { id: "/about", label: "About", icon: UserRound },
+    { id: "/skills", label: "Skills", icon: Code2 },
+    { id: "/freelancing", label: "Freelancing", icon: Laptop2Icon },
+    { id: "/projects", label: "Projects", icon: FolderGit2 },
     { id: "/education", label: "Education", icon: GraduationCap },
     { id: "/contact", label: "Contact", icon: Mail },
   ];

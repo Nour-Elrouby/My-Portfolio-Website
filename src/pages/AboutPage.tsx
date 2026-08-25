@@ -1,13 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
-  BrainCircuit,
-  FileSearch,
-  ClipboardCheck,
+  Bot,
+  FileSearch2,
+  ShieldCheck,
   MapPin,
   CalendarDays,
   GraduationCap,
-  CircuitBoard,
+  Workflow,
 } from "lucide-react";
 
 function calculateAge(
@@ -31,19 +31,19 @@ const age = calculateAge(2006, 3, 17);
 const AboutPage: React.FC = () => {
   const highlights = [
     {
-      icon: CircuitBoard,
+      icon: Workflow,
       title: "Generative AI Engineering",
       description:
       "Designing practical AI applications using LLMs, NLP, prompt engineering, and conversational interfaces.",
     },
     {
-      icon: FileSearch,
+      icon: FileSearch2,
       title: "RAG & Agentic AI",
       description:
       "Building knowledge-grounded AI systems using RAG, vector databases, AI agents, and reliable retrieval workflows.",
     },
     {
-      icon: ClipboardCheck,
+      icon: ShieldCheck,
       title: "LLM Evaluation & Reliability",
       description:
       "Evaluating LLM and agentic systems for groundedness, retrieval quality, citation accuracy, tool selection, and reliable end-to-end execution.",
@@ -70,7 +70,7 @@ const AboutPage: React.FC = () => {
       description: "Beni-Suef National University   2023–2027",
     },
     {
-      icon: BrainCircuit,
+      icon: Bot,
       label: "Current Role",
       value: "Generative AI Engineer",
       description:

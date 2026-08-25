@@ -6,7 +6,7 @@ import {
   MapPin,
   Github,
   Linkedin,
-  Award,
+  BadgeCheck,
   Clock,
   CheckCircle,
   MessageSquare,
@@ -53,7 +53,7 @@ const ContactPage: React.FC = () => {
       description: "Professional networking",
     },
     {
-      icon: Award,
+      icon: BadgeCheck,
       label: "Credly",
       value: "Certifications",
       href: "https://www.credly.com/users/nour-el-rouby/badges#credly",
