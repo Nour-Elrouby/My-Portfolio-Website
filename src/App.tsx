@@ -3,7 +3,9 @@ import {
   Routes,
   Route,
   useLocation,
+  useNavigate,
 } from "react-router-dom";
+import { useLayoutEffect, useRef } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 import LandingPage from "./pages/LandingPage";
@@ -18,7 +20,18 @@ import "./index.css";
 
 function AppContent() {
   const location = useLocation();
+  const navigate = useNavigate();
   const shouldReduceMotion = useReducedMotion();
+  const hasHandledInitialRoute = useRef(false);
+
+  useLayoutEffect(() => {
+    if (hasHandledInitialRoute.current) return;
+
+    hasHandledInitialRoute.current = true;
+    if (location.pathname !== "/") {
+      navigate("/", { replace: true });
+    }
+  }, [location.pathname, navigate]);
 
   const hideNavOn = ["/"];
 

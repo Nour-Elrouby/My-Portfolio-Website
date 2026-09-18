@@ -76,6 +76,7 @@ const LandingPage: React.FC = () => {
             <TypewriterText
               texts={heroRoles}
               delay={2000}
+              startDelay={2000}
             />
           </motion.div>
 
