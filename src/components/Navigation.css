@@ -61,6 +61,23 @@
   stroke-width: 2;
 }
 
+.portfolio-nav__active-indicator {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: rgb(37 99 235);
+  pointer-events: none;
+}
+
+.portfolio-nav__link-content {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .portfolio-nav__theme-toggle {
   display: grid;
   width: 2.5rem;
@@ -89,7 +106,7 @@
 }
 
 .portfolio-nav__link--active {
-  background: rgb(37 99 235);
+  background: transparent;
   font-weight: 600;
 }
 
@@ -216,7 +233,7 @@ html[data-theme="light"] .portfolio-nav__theme-toggle:hover {
 
 html[data-theme="light"] .portfolio-nav__link--active,
 html[data-theme="light"] .portfolio-nav__link--active:hover {
-  background: #2563eb;
+  background: transparent;
   color: #ffffff;
 }
 

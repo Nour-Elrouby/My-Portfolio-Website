@@ -4,6 +4,7 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 import LandingPage from "./pages/LandingPage";
 import AboutPage from "./pages/AboutPage";
@@ -17,21 +18,36 @@ import "./index.css";
 
 function AppContent() {
   const location = useLocation();
+  const shouldReduceMotion = useReducedMotion();
 
   const hideNavOn = ["/"];
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
       {!hideNavOn.includes(location.pathname) && <Navigation />}
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/skills" element={<SkillsPage />} />
-        <Route path="/freelancing" element={<FreelancingPage />} />
-        <Route path="/projects" element={<ProjectsPage />} />
-        <Route path="/education" element={<EducationPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-      </Routes>
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.main
+          key={location.pathname}
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -6 }}
+          transition={{
+            duration: shouldReduceMotion ? 0 : 0.24,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          style={{ willChange: "opacity, transform" }}
+        >
+          <Routes location={location}>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/skills" element={<SkillsPage />} />
+            <Route path="/freelancing" element={<FreelancingPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/education" element={<EducationPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </motion.main>
+      </AnimatePresence>
     </div>
   );
 }

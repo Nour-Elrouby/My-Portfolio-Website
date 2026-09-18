@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  LayoutGroup,
+  useReducedMotion,
+} from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import {
   Code2,
@@ -42,6 +47,7 @@ const getInitialTheme = (): Theme => {
 
 const Navigation: React.FC = () => {
   const location = useLocation();
+  const shouldReduceMotion = useReducedMotion();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
 
@@ -138,40 +144,63 @@ const Navigation: React.FC = () => {
               Nour El-Rouby
             </Link>
 
-            <div className="portfolio-nav__links">
-              {navItems.map((item) => {
-                const Icon = item.icon;
-                const isActive = location.pathname === item.id;
-                return (
-                  <Link
-                    key={item.id}
-                    to={item.id}
-                    aria-current={isActive ? "page" : undefined}
-                    className={`portfolio-nav__link ${
-                      isActive
-                        ? "portfolio-nav__link--active"
-                        : ""
-                    }`}
-                  >
-                    <Icon className="portfolio-nav__link-icon" aria-hidden="true" />
-                    {item.label}
-                  </Link>
-                );
-              })}
-              <button
-                type="button"
-                onClick={toggleTheme}
-                className="portfolio-nav__theme-toggle"
-                aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-                title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-              >
-                {theme === "dark" ? (
-                  <Moon aria-hidden="true" />
-                ) : (
-                  <Sun aria-hidden="true" />
-                )}
-              </button>
-            </div>
+            <LayoutGroup id="primary-navigation">
+              <div className="portfolio-nav__links">
+                {navItems.map((item) => {
+                  const Icon = item.icon;
+                  const isActive = location.pathname === item.id;
+                  return (
+                    <Link
+                      key={item.id}
+                      to={item.id}
+                      aria-current={isActive ? "page" : undefined}
+                      className={`portfolio-nav__link ${
+                        isActive
+                          ? "portfolio-nav__link--active"
+                          : ""
+                      }`}
+                    >
+                      {isActive && (
+                        <motion.span
+                          layoutId="active-navigation-tab"
+                          className="portfolio-nav__active-indicator"
+                          transition={
+                            shouldReduceMotion
+                              ? { duration: 0 }
+                              : {
+                                  type: "spring",
+                                  stiffness: 500,
+                                  damping: 42,
+                                  mass: 0.7,
+                                }
+                          }
+                        />
+                      )}
+                      <span className="portfolio-nav__link-content">
+                        <Icon
+                          className="portfolio-nav__link-icon"
+                          aria-hidden="true"
+                        />
+                        <span>{item.label}</span>
+                      </span>
+                    </Link>
+                  );
+                })}
+                <button
+                  type="button"
+                  onClick={toggleTheme}
+                  className="portfolio-nav__theme-toggle"
+                  aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+                  title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+                >
+                  {theme === "dark" ? (
+                    <Moon aria-hidden="true" />
+                  ) : (
+                    <Sun aria-hidden="true" />
+                  )}
+                </button>
+              </div>
+            </LayoutGroup>
 
             <button
               type="button"

@@ -992,6 +992,42 @@ body,
   background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
 }
 
+.hero-social-link {
+  color: #9ca3af;
+  transition: color 250ms ease, filter 250ms ease;
+}
+
+.hero-social-wordmark {
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  font-family: "Segoe Print", "Bradley Hand", cursive;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.hero-social-link:hover {
+  filter: brightness(1.18);
+}
+
+.hero-social-link--github:hover {
+  color: #f0f6fc;
+}
+
+.hero-social-link--linkedin:hover {
+  color: #0a66c2;
+}
+
+.hero-social-link--kaggle:hover {
+  color: #20beff;
+}
+
+.hero-social-link--medium:hover {
+  color: #ffffff;
+}
+
 html[data-theme="dark"] .min-h-screen.bg-white {
   background-color: #000000;
   color: #ffffff;
@@ -1100,7 +1136,27 @@ html[data-theme="light"] select:focus {
 }
 
 html[data-theme="light"] .particle-background {
-  background: linear-gradient(135deg, #f8fafc 0%, #eef4fb 100%);
+  background: #f8fafc;
+}
+
+html[data-theme="light"] .hero-social-link {
+  color: #64748b;
+}
+
+html[data-theme="light"] .hero-social-link:hover {
+  filter: none;
+}
+
+html[data-theme="light"] .hero-social-link--github:hover {
+  color: #181717;
+}
+
+html[data-theme="light"] .hero-social-link--kaggle:hover {
+  color: #0077a8;
+}
+
+html[data-theme="light"] .hero-social-link--medium:hover {
+  color: #000000;
 }
 
 html[data-theme="light"] {

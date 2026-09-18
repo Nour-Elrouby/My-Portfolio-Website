@@ -56,7 +56,7 @@ const ParticleBackground: React.FC = () => {
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fillStyle = isLightTheme
-          ? `rgba(59, 130, 246, ${particle.opacity * 0.32})`
+          ? `rgba(37, 99, 235, ${particle.opacity * 0.42})`
           : `rgba(255, 255, 255, ${particle.opacity})`;
         ctx.fill();
 
@@ -68,12 +68,12 @@ const ParticleBackground: React.FC = () => {
 
           if (distance < 100) {
             const opacity =
-              ((100 - distance) / 100) * (isLightTheme ? 0.14 : 0.3);
+              ((100 - distance) / 100) * (isLightTheme ? 0.18 : 0.3);
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(otherParticle.x, otherParticle.y);
             ctx.strokeStyle = isLightTheme
-              ? `rgba(100, 116, 139, ${opacity})`
+              ? `rgba(59, 130, 246, ${opacity})`
               : `rgba(255, 255, 255, ${opacity})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();

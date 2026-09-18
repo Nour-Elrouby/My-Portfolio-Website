@@ -1,9 +1,34 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { ChevronDown, Github, Linkedin, Award, BarChart3 } from "lucide-react";
+import {
+  ChevronDown,
+  Github,
+  Linkedin,
+} from "lucide-react";
 import ParticleBackground from "../components/ParticleBackground";
 import TypewriterText from "../components/TypewriterText";
+
+const MediumIcon: React.FC<{ size?: number }> = ({ size = 32 }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 32 32"
+    fill="currentColor"
+    aria-hidden="true"
+  >
+    <circle cx="8" cy="16" r="8" />
+    <ellipse cx="21" cy="16" rx="4" ry="7.5" />
+    <ellipse cx="29" cy="16" rx="1.5" ry="6.5" />
+  </svg>
+);
+
+const heroRoles = [
+  "Generative AI Engineer",
+  "RAG & Agentic AI Engineer",
+  "LLM Evaluation Engineer",
+  "AI Systems Builder",
+];
 
 const LandingPage: React.FC = () => {
   const [showEnterButton, setShowEnterButton] = useState(false);
@@ -49,18 +74,13 @@ const LandingPage: React.FC = () => {
             transition={{ duration: 1, delay: 2 }}
           >
             <TypewriterText
-              texts={[
-                "AI Engineer",
-                "Machine Learning Engineer",
-                "LLM & Agentic AI Engineer",
-                "Problem Solver",
-              ]}
+              texts={heroRoles}
               delay={2000}
             />
           </motion.div>
 
           <motion.div
-            className="flex justify-center space-x-6 mb-12"
+            className="flex items-center justify-center space-x-6 mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 3 }}
@@ -69,7 +89,8 @@ const LandingPage: React.FC = () => {
               href="https://github.com/Nour-Elrouby"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
+              aria-label="GitHub"
+              className="hero-social-link hero-social-link--github transition-colors duration-300"
               whileHover={{ scale: 1.2, rotate: 5 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -79,7 +100,8 @@ const LandingPage: React.FC = () => {
               href="https://www.linkedin.com/in/nourelrouby/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
+              aria-label="LinkedIn"
+              className="hero-social-link hero-social-link--linkedin transition-colors duration-300"
               whileHover={{ scale: 1.2, rotate: -5 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -89,21 +111,25 @@ const LandingPage: React.FC = () => {
               href="https://www.kaggle.com/nourdeveloper1"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
+              aria-label="Kaggle"
+              className="hero-social-link hero-social-link--kaggle transition-colors duration-300"
               whileHover={{ scale: 1.2, rotate: 5 }}
               whileTap={{ scale: 0.9 }}
             >
-              <BarChart3 size={32} />
+              <span className="hero-social-wordmark" aria-hidden="true">
+                Kaggle
+              </span>
             </motion.a>
             <motion.a
-              href="https://www.credly.com/users/nour-el-rouby/badges#credly"
+              href="https://medium.com/@nour.developer1"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-yellow-400 transition-colors duration-300"
+              aria-label="Medium"
+              className="hero-social-link hero-social-link--medium transition-colors duration-300"
               whileHover={{ scale: 1.2, rotate: 5 }}
               whileTap={{ scale: 0.9 }}
             >
-              <Award size={32} />
+              <MediumIcon size={32} />
             </motion.a>
           </motion.div>
 
