@@ -25,7 +25,7 @@ function AppContent() {
   return (
     <div className="min-h-screen bg-white text-gray-900">
       {!hideNavOn.includes(location.pathname) && <Navigation />}
-      <AnimatePresence mode="wait" initial={false}>
+      <AnimatePresence mode="wait">
         <motion.main
           key={location.pathname}
           initial={shouldReduceMotion ? false : { opacity: 0, y: 10 }}
