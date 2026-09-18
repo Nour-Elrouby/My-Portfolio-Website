@@ -225,19 +225,19 @@ const AboutPage: React.FC = () => {
                   <p className="flex items-start space-x-3">
                     <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
                     <span>
-                       Solving complex problems with LLMs, RAG, and agentic systems.
+                       Solving complex problems with LLMs, RAG, and Agentic Systems.
                     </span>
                   </p>
                   <p className="flex items-start space-x-3">
                     <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
                     <span>
-                       Building trustworthy AI systems grounded in relevant data and user needs
+                       Building trustworthy AI systems grounded in relevant data and user needs.
                     </span>
                   </p>
                   <p className="flex items-start space-x-3">
                     <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
                     <span>
-                      Continuously learning and sharing emerging AI technologies
+                      Continuously learning and sharing emerging AI technologies.
                     </span>
                   </p>
                 </div>
