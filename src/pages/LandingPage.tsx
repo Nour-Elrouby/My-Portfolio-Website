@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { motion, useReducedMotion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
-  ChevronDown,
+  ArrowRight,
   Github,
   Linkedin,
 } from "lucide-react";
@@ -23,6 +23,18 @@ const MediumIcon: React.FC<{ size?: number }> = ({ size = 32 }) => (
   </svg>
 );
 
+const KaggleIcon: React.FC<{ size?: number }> = ({ size = 32 }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 32 32"
+    fill="currentColor"
+    aria-hidden="true"
+  >
+    <path d="M8 5h3v10.3L21.2 5h4.1L14.2 16.1 25.7 27h-4.2L11 17v10H8V5Z" />
+  </svg>
+);
+
 const heroRoles = [
   "Generative AI Engineer",
   "RAG & Agentic AI Engineer",
@@ -30,21 +42,19 @@ const heroRoles = [
   "AI Systems Builder",
 ];
 
+const MotionLink = motion.create(Link);
+
 const LandingPage: React.FC = () => {
   const [showEnterButton, setShowEnterButton] = useState(false);
-  const navigate = useNavigate();
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowEnterButton(true);
-    }, 4000);
+    }, shouldReduceMotion ? 0 : 4000);
 
     return () => clearTimeout(timer);
-  }, []);
-
-  const handleEnterPortfolio = () => {
-    navigate("/about");
-  };
+  }, [shouldReduceMotion]);
 
   return (
     <div className="portfolio-landing relative min-h-screen bg-black text-white overflow-hidden">
@@ -52,16 +62,16 @@ const LandingPage: React.FC = () => {
 
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={{ duration: shouldReduceMotion ? 0 : 1, delay: shouldReduceMotion ? 0 : 0.5 }}
           className="text-center"
         >
           <motion.h1
             className="text-6xl md:text-8xl font-bold mb-6"
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 1 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 1, delay: shouldReduceMotion ? 0 : 1 }}
           >
             <span className="block sm:inline">Nour</span>{" "}
             <span className="block sm:inline">El-Rouby</span>
@@ -69,31 +79,34 @@ const LandingPage: React.FC = () => {
 
           <motion.div
             className="text-xl md:text-2xl text-gray-300 mb-8 h-8"
-            initial={{ opacity: 0 }}
+            initial={shouldReduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 2 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 1, delay: shouldReduceMotion ? 0 : 2 }}
           >
             <TypewriterText
               texts={heroRoles}
               delay={2000}
               startDelay={2000}
+              stopAfterCycle
             />
           </motion.div>
 
           <motion.div
             className="flex items-center justify-center space-x-6 mb-12"
-            initial={{ opacity: 0, y: 20 }}
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 3 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 1, delay: shouldReduceMotion ? 0 : 3 }}
           >
             <motion.a
               href="https://github.com/Nour-Elrouby"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
+              title="GitHub"
               className="hero-social-link hero-social-link--github transition-colors duration-300"
-              whileHover={{ scale: 1.2, rotate: 5 }}
-              whileTap={{ scale: 0.9 }}
+              whileHover={shouldReduceMotion ? undefined : { y: -2, scale: 1.08 }}
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.9 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
             >
               <Github size={32} />
             </motion.a>
@@ -102,9 +115,11 @@ const LandingPage: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
+              title="LinkedIn"
               className="hero-social-link hero-social-link--linkedin transition-colors duration-300"
-              whileHover={{ scale: 1.2, rotate: -5 }}
-              whileTap={{ scale: 0.9 }}
+              whileHover={shouldReduceMotion ? undefined : { y: -2, scale: 1.08 }}
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.9 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
             >
               <Linkedin size={32} />
             </motion.a>
@@ -113,57 +128,45 @@ const LandingPage: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Kaggle"
+              title="Kaggle"
               className="hero-social-link hero-social-link--kaggle transition-colors duration-300"
-              whileHover={{ scale: 1.2, rotate: 5 }}
-              whileTap={{ scale: 0.9 }}
+              whileHover={shouldReduceMotion ? undefined : { y: -2, scale: 1.08 }}
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.9 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
             >
-              <span className="hero-social-wordmark" aria-hidden="true">
-                Kaggle
-              </span>
+              <KaggleIcon size={32} />
             </motion.a>
             <motion.a
               href="https://medium.com/@nour.developer1"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Medium"
+              title="Medium"
               className="hero-social-link hero-social-link--medium transition-colors duration-300"
-              whileHover={{ scale: 1.2, rotate: 5 }}
-              whileTap={{ scale: 0.9 }}
+              whileHover={shouldReduceMotion ? undefined : { y: -2, scale: 1.08 }}
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.9 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
             >
               <MediumIcon size={32} />
             </motion.a>
           </motion.div>
 
           {showEnterButton && (
-            <motion.button
-              onClick={handleEnterPortfolio}
-              className="group bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
-              initial={{ opacity: 0, y: 30 }}
+            <MotionLink
+              to="/about"
+              className="hero-entry-link group bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.5 }}
+              whileHover={shouldReduceMotion ? undefined : { scale: 1.05 }}
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
             >
               Explore My Work
-              <motion.div
-                className="inline-block ml-2"
-                animate={{ y: [0, 5, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
-              >
-                <ChevronDown className="inline" size={20} />
-              </motion.div>
-            </motion.button>
+              <ArrowRight className="inline ml-2" size={20} aria-hidden="true" />
+            </MotionLink>
           )}
         </motion.div>
       </div>
-
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gray-400"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-      >
-        <ChevronDown size={24} />
-      </motion.div>
     </div>
   );
 };

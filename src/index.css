@@ -993,19 +993,29 @@ body,
 }
 
 .hero-social-link {
+  display: inline-grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 0.375rem;
   color: #9ca3af;
   transition: color 250ms ease, filter 250ms ease;
 }
 
-.hero-social-wordmark {
+.hero-social-link:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 4px;
+}
+
+.hero-entry-link {
   display: inline-flex;
   align-items: center;
-  height: 32px;
-  font-family: "Segoe Print", "Bradley Hand", cursive;
-  font-size: 19px;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: 0;
+  justify-content: center;
+}
+
+.hero-entry-link:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 4px;
 }
 
 .hero-social-link:hover {
@@ -1316,7 +1326,7 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
     margin-left: 1.25rem;
   }
 
-  .portfolio-landing a {
+  .portfolio-landing .hero-social-link {
     display: inline-grid;
     width: 2.75rem;
     height: 2.75rem;
