@@ -1090,13 +1090,13 @@ html[data-theme="light"] .from-blue-600 .text-white {
   color: #ffffff;
 }
 
-html[data-theme="light"] .group.bg-white.text-black {
+html[data-theme="light"] .portfolio-landing .group.bg-white.text-black {
   background-color: #2563eb;
   color: #ffffff;
 }
 
-html[data-theme="light"] .group.bg-white.text-black:hover,
-html[data-theme="light"] .hover\:bg-gray-100:hover {
+html[data-theme="light"] .portfolio-landing .group.bg-white.text-black:hover,
+html[data-theme="light"] .portfolio-landing .hover\:bg-gray-100:hover {
   background-color: #1d4ed8;
 }
 
@@ -1268,6 +1268,20 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
     flex: 0 0 3rem;
     place-items: center;
     padding: 0;
+  }
+
+  .portfolio-page .project-card-icon {
+    display: grid;
+    width: 3rem;
+    min-width: 3rem;
+    height: 3rem;
+    flex: 0 0 3rem;
+    place-items: center;
+    padding: 0;
+  }
+
+  .portfolio-page .project-card-icon svg {
+    display: block;
   }
 
   .portfolio-page .justify-between {

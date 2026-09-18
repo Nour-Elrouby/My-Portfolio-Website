@@ -246,7 +246,7 @@ const ProjectsPage: React.FC = () => {
                   <div className="p-6 border-b border-zinc-800">
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center space-x-3">
-                        <div className="bg-blue-500 p-2 rounded-lg">
+                        <div className="project-card-icon bg-blue-500 p-2 rounded-lg">
                           <Icon size={20} className="text-white" />
                         </div>
                         <div>
