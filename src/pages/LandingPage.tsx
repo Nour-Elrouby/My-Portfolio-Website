@@ -51,7 +51,7 @@ const LandingPage: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowEnterButton(true);
-    }, shouldReduceMotion ? 0 : 4000);
+    }, shouldReduceMotion ? 0 : 2700);
 
     return () => clearTimeout(timer);
   }, [shouldReduceMotion]);
@@ -64,14 +64,14 @@ const LandingPage: React.FC = () => {
         <motion.div
           initial={shouldReduceMotion ? false : { opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: shouldReduceMotion ? 0 : 1, delay: shouldReduceMotion ? 0 : 0.5 }}
+          transition={{ duration: shouldReduceMotion ? 0 : 0.7, delay: shouldReduceMotion ? 0 : 0.1 }}
           className="text-center"
         >
           <motion.h1
             className="text-6xl md:text-8xl font-bold mb-6"
             initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: shouldReduceMotion ? 0 : 1, delay: shouldReduceMotion ? 0 : 1 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.7, delay: shouldReduceMotion ? 0 : 0.25 }}
           >
             <span className="block sm:inline">Nour</span>{" "}
             <span className="block sm:inline">El-Rouby</span>
@@ -81,13 +81,13 @@ const LandingPage: React.FC = () => {
             className="text-xl md:text-2xl text-gray-300 mb-8 h-8"
             initial={shouldReduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: shouldReduceMotion ? 0 : 1, delay: shouldReduceMotion ? 0 : 2 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.55, delay: shouldReduceMotion ? 0 : 0.75 }}
           >
             <TypewriterText
               texts={heroRoles}
               delay={2000}
-              startDelay={2000}
-              stopAfterCycle
+              speed={80}
+              startDelay={750}
             />
           </motion.div>
 
@@ -95,7 +95,7 @@ const LandingPage: React.FC = () => {
             className="flex items-center justify-center space-x-6 mb-12"
             initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: shouldReduceMotion ? 0 : 1, delay: shouldReduceMotion ? 0 : 3 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.55, delay: shouldReduceMotion ? 0 : 1.35 }}
           >
             <motion.a
               href="https://github.com/Nour-Elrouby"
@@ -151,20 +151,22 @@ const LandingPage: React.FC = () => {
             </motion.a>
           </motion.div>
 
-          {showEnterButton && (
-            <MotionLink
-              to="/about"
-              className="hero-entry-link group bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
-              initial={shouldReduceMotion ? false : { opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: shouldReduceMotion ? 0 : 0.5 }}
-              whileHover={shouldReduceMotion ? undefined : { scale: 1.05 }}
-              whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
-            >
-              Explore My Work
-              <ArrowRight className="inline ml-2" size={20} aria-hidden="true" />
-            </MotionLink>
-          )}
+          <div className="hero-entry-slot">
+            {showEnterButton && (
+              <MotionLink
+                to="/about"
+                className="hero-entry-link group bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
+                initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: shouldReduceMotion ? 0 : 0.5 }}
+                whileHover={shouldReduceMotion ? undefined : { scale: 1.05 }}
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
+              >
+                Explore My Work
+                <ArrowRight className="inline ml-2" size={20} aria-hidden="true" />
+              </MotionLink>
+            )}
+          </div>
         </motion.div>
       </div>
     </div>

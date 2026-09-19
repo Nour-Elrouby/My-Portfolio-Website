@@ -992,6 +992,13 @@ body,
   background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
 }
 
+.portfolio-landing,
+.portfolio-landing > .relative {
+  min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
+}
+
 .hero-social-link {
   display: inline-grid;
   width: 2rem;
@@ -1009,6 +1016,13 @@ body,
 
 .hero-entry-link {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-entry-slot {
+  display: flex;
+  min-height: 3.75rem;
   align-items: center;
   justify-content: center;
 }
@@ -1312,9 +1326,32 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
     justify-content: center;
   }
 
+  .skills-category-nav {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+
+  .portfolio-page button.skills-category-button {
+    width: 100%;
+    min-height: 4.75rem;
+    justify-content: flex-start;
+    padding: 0.875rem 1rem;
+    text-align: left;
+  }
+
+  .skills-category-button svg {
+    flex: 0 0 auto;
+  }
+
+  .skills-category-button span {
+    line-height: 1.35;
+  }
+
   .portfolio-landing,
   .portfolio-landing > .relative {
     min-height: 100svh;
+    min-height: 100dvh;
   }
 
   .portfolio-landing .text-6xl {

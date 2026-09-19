@@ -262,7 +262,7 @@ const SkillsPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-wrap justify-center gap-4 mb-16"
+            className="skills-category-nav flex flex-wrap justify-center gap-4 mb-16"
           >
             {Object.entries(skillCategories).map(([key, category]) => {
               const Icon = category.icon;
@@ -272,7 +272,7 @@ const SkillsPage: React.FC = () => {
                 <button
                   key={key}
                   onClick={() => setActiveCategory(key)}
-                  className={`flex items-center space-x-3 px-6 py-3 rounded-lg border transition-colors duration-300 ${
+                  className={`skills-category-button flex items-center space-x-3 px-6 py-3 rounded-lg border transition-colors duration-300 ${
                     isActive
                       ? "bg-blue-600 text-white border-blue-600"
                       : "bg-zinc-900 text-gray-300 border-zinc-800 hover:border-zinc-700"

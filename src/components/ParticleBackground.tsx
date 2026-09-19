@@ -9,6 +9,7 @@ const ParticleBackground: React.FC = () => {
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
+    const mobileQuery = window.matchMedia("(max-width: 767px)");
 
     const particles: Array<{
       x: number;
@@ -25,8 +26,9 @@ const ParticleBackground: React.FC = () => {
     };
 
     const createParticles = () => {
+      const isMobile = mobileQuery.matches;
       const particleCount = Math.floor(
-        (window.innerWidth * window.innerHeight) / 15000
+        (window.innerWidth * window.innerHeight) / (isMobile ? 24000 : 15000)
       );
       particles.length = 0;
 
@@ -34,8 +36,8 @@ const ParticleBackground: React.FC = () => {
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5,
+          vx: (Math.random() - 0.5) * (isMobile ? 0.35 : 0.5),
+          vy: (Math.random() - 0.5) * (isMobile ? 0.35 : 0.5),
           size: Math.random() * 2 + 1,
           opacity: Math.random() * 0.8 + 0.2,
         });
@@ -45,6 +47,7 @@ const ParticleBackground: React.FC = () => {
     const drawParticles = (moveParticles: boolean) => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const isLightTheme = document.documentElement.dataset.theme === "light";
+      const connectionDistance = mobileQuery.matches ? 72 : 100;
 
       particles.forEach((particle, index) => {
         if (moveParticles) {
@@ -66,9 +69,10 @@ const ParticleBackground: React.FC = () => {
           const dy = particle.y - otherParticle.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 100) {
+          if (distance < connectionDistance) {
             const opacity =
-              ((100 - distance) / 100) * (isLightTheme ? 0.18 : 0.3);
+              ((connectionDistance - distance) / connectionDistance) *
+              (isLightTheme ? 0.18 : 0.3);
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(otherParticle.x, otherParticle.y);
