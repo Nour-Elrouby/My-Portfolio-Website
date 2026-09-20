@@ -4,6 +4,10 @@ import App from "./App.tsx";
 import "./index.css";
 //import { BrowserRouter } from "react-router-dom";
 
+if (window.location.pathname !== "/") {
+  window.history.replaceState(window.history.state, "", "/");
+}
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <App />
