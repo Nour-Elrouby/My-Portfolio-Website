@@ -155,15 +155,30 @@ const LandingPage: React.FC = () => {
             {showEnterButton && (
               <MotionLink
                 to="/about"
-                className="hero-entry-link group bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
+                className="hero-entry-link"
                 initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: shouldReduceMotion ? 0 : 0.5 }}
-                whileHover={shouldReduceMotion ? undefined : { scale: 1.05 }}
-                whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
+                whileHover={
+                  shouldReduceMotion
+                    ? undefined
+                    : {
+                        y: -2,
+                        scale: 1.02,
+                        transition: { duration: 0.18, ease: "easeOut" },
+                      }
+                }
+                whileTap={
+                  shouldReduceMotion
+                    ? undefined
+                    : {
+                        scale: 0.98,
+                        transition: { duration: 0.12, ease: "easeOut" },
+                      }
+                }
               >
                 Explore My Work
-                <ArrowRight className="inline ml-2" size={20} aria-hidden="true" />
+                <ArrowRight size={20} aria-hidden="true" />
               </MotionLink>
             )}
           </div>

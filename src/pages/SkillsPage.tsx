@@ -245,7 +245,7 @@ const SkillsPage: React.FC = () => {
               const Icon = stat.icon;
               return (
                 <div key={index} className="text-center">
-                  <div className="bg-zinc-900 rounded-lg p-6 border border-zinc-800">
+                  <div className="h-full flex flex-col items-center justify-center bg-zinc-900 rounded-lg p-6 border border-zinc-800">
                     <Icon size={32} className="text-blue-500 mx-auto mb-4" />
                     <h3 className="text-3xl font-bold text-white mb-2">
                       {stat.value}
