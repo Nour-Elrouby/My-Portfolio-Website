@@ -138,13 +138,12 @@ const AboutPage: React.FC = () => {
                 </h2>
                 <div className="space-y-4 text-lg text-gray-300 leading-relaxed">
                   <p>
-                    I’m a Generative AI Engineer based in Cairo, Egypt, and an
-                    undergraduate in Computers and Artificial
-                    Intelligence at Beni-Suef National University. I specialize
-                    in Retrieval-Augmented Generation (RAG), LLM applications,
-                    and reliable agentic workflows, with a focus on building
-                    practical, evidence-grounded AI systems that solve
-                    real-world problems.
+                    I’m a Generative AI Engineer based in Cairo, Egypt, pursuing
+                    a B.Sc. in Computers and Artificial Intelligence at{" "}
+                    <span style={{ whiteSpace: "nowrap" }}>Beni-Suef</span>{" "}
+                    National University. My work centers on RAG applications
+                    and agentic workflows, with a focus on reliable retrieval,
+                    grounded responses, and real-world usability.
                   </p>
 
                   <p>
