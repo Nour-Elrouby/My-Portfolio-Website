@@ -138,8 +138,8 @@ const AboutPage: React.FC = () => {
                 </h2>
                 <div className="space-y-4 text-lg text-gray-300 leading-relaxed">
                   <p>
-                    I’m a {age}-year-old Generative AI Engineer based in Cairo,
-                    Egypt, and an undergraduate in Computers and Artificial
+                    I’m a Generative AI Engineer based in Cairo, Egypt, and an
+                    undergraduate in Computers and Artificial
                     Intelligence at Beni-Suef National University. I specialize
                     in Retrieval-Augmented Generation (RAG), LLM applications,
                     and reliable agentic workflows, with a focus on building
