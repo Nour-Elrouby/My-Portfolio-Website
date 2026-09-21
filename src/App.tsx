@@ -23,7 +23,7 @@ function AppContent() {
   const hideNavOn = ["/"];
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className={`min-h-screen bg-white text-gray-900${location.pathname === "/" ? " portfolio-app--landing" : ""}`}>
       {!hideNavOn.includes(location.pathname) && <Navigation />}
       <AnimatePresence mode="wait">
         <motion.main
